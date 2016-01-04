@@ -4,8 +4,9 @@ xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_paren
 android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
 android:paddingRight="@dimen/activity_horizontal_margin"
 android:paddingTop="@dimen/activity_vertical_margin"
-android:paddingBottom="@dimen/activity_vertical_margin" tools:context="intratek.intratek.Login"
-android:background="@color/Blue">
+android:paddingBottom="@dimen/activity_vertical_margin"
+android:background="@color/Blue"
+tools:context="intratek.intratek.Login">
 
 <LinearLayout
     android:orientation="vertical"
@@ -18,56 +19,28 @@ android:background="@color/Blue">
     android:layout_alignParentStart="true"
     android:layout_marginTop="41dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Login"
-        android:id="@+id/textView1"
-        android:textColor="@color/White"
-        android:textSize="17dp"
-        android:textStyle="bold" />
-
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/Login"
+        android:hint="@string/prompt_login"
         android:inputType="textPersonName" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/enterPasswordTxt"
-        android:id="@+id/textView2"
-        android:textStyle="bold"
-        android:textSize="17dp"
-        android:textColor="@color/White" />
 
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/Password"
+        android:hint="@string/prompt_password" />
         android:inputType="textPassword" />
 </LinearLayout>
-
-<ImageView
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:src="@drawable/white_logo2_120"
-    android:id="@+id/imageView"
-    android:layout_alignParentTop="true"
-    android:layout_alignParentRight="true"
-    android:layout_alignParentEnd="true"
-    android:layout_marginTop="38dp"
-    android:contentDescription="@string/logoTxt" />
 
 <Button
     android:layout_width="300dp"
     android:layout_height="70dp"
-    android:text="@string/buttonLoginTxt"
+    android:text="@string/action_sign_in"
     android:textSize="25sp"
     android:textColor="@color/White"
     android:id="@+id/buttonLogin"
-    android:background="@drawable/button_normal"
     android:layout_alignParentBottom="true"
     android:layout_centerHorizontal="true"
     android:layout_gravity="center_horizontal"
