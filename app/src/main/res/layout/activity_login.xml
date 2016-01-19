@@ -5,7 +5,7 @@ android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizo
 android:paddingRight="@dimen/activity_horizontal_margin"
 android:paddingTop="@dimen/activity_vertical_margin"
 android:paddingBottom="@dimen/activity_vertical_margin"
-android:background="@color/Blue"
+android:background="@color/White"
 tools:context="intratek.intratek.Login">
 
 <LinearLayout
@@ -21,17 +21,24 @@ tools:context="intratek.intratek.Login">
 
     <EditText
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:textColor="#000000"
         android:id="@+id/Login"
         android:hint="@string/prompt_login"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        style="@android:style/TextAppearance.Holo.Medium.Inverse"
+        android:textColorHint="#7d7d7d"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/edittext_style"/>
 
     <EditText
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:id="@+id/Password"
-        android:hint="@string/prompt_password" />
-        android:inputType="textPassword" />
+        android:hint="@string/prompt_password"
+        android:inputType="textPassword"
+        android:background="@drawable/edittext_style"/>
+
 </LinearLayout>
 
 <Button

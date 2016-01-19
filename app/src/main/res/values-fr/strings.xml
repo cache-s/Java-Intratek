@@ -21,6 +21,7 @@
     <!-- Strings related to login -->
     <string name="prompt_login">Login</string>
     <string name="prompt_password">Mot de passe</string>
+    <string name="action_sign_in">Se connecter</string>
     <string name="error_incorrect_password">Mot de passe incorrect</string>
     <string name="error_field_required">Ce champ est requis</string>
 </resources>
