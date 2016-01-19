@@ -10,4 +10,6 @@
     <color name="Orange">#F7941D</color>
     <color name="Purple">#662D91</color>
     <color name="Green">#8EC63F</color>
+
+    <color name="black_overlay">#66000000</color>
 </resources>
