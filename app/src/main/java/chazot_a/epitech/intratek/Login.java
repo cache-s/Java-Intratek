@@ -4,6 +4,8 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 
 import android.os.AsyncTask;
@@ -29,6 +31,7 @@ import java.util.HashMap;
  */
 public class Login extends AppCompatActivity {
 
+    SharedPreferences preferences;
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
@@ -46,6 +49,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         // Set up the login form.
         mLoginView = (EditText) findViewById(R.id.login);
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         mPasswordView = (EditText) findViewById(R.id.password);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -192,23 +196,20 @@ public class Login extends AppCompatActivity {
             params.put("password", mPassword);
 
             String response = network.performPostCall("https://epitech-api.herokuapp.com/login?", params);
-            System.out.println("RESPONSE :" + response);
 
             try {
                 JSONObject jObject  = new JSONObject(response);
                 String token = jObject.getString("token");
-                System.out.println("TOKEN : " + token);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putString("token", token);
+                editor.putBoolean("isConnected", true);
+                editor.apply();
             }
             catch (JSONException e) {
                 System.out.println(e);
+                return false;
             }
-
-            //if (token)
-            //  Success (redirection home)
-            //else
-            //  Fail (error)
-
-            return false;
+            return  true;
         }
 
         @Override

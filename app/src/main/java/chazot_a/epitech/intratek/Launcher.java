@@ -44,20 +44,7 @@ public class Launcher extends AppCompatActivity {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         boolean isConnected = preferences.getBoolean("isConnected", false);
 
-        if (!isConnected) //Not connected
-        {
-            _runnable = new Runnable()
-            {
-                @Override
-                public void run()
-                {
-                    Intent intent = new Intent(Launcher.this, Login.class);
-                    startActivity(intent);
-                    finish();
-                }
-            };
-        }
-        else //Connected
+        if (isConnected) //Connected
         {
             _runnable = new Runnable()
             {
@@ -65,6 +52,19 @@ public class Launcher extends AppCompatActivity {
                 public void run()
                 {
                     Intent intent = new Intent(Launcher.this, Home.class);
+                    startActivity(intent);
+                    finish();
+                }
+            };
+        }
+        else //Not Connected
+        {
+            _runnable = new Runnable()
+            {
+                @Override
+                public void run()
+                {
+                    Intent intent = new Intent(Launcher.this, Login.class);
                     startActivity(intent);
                     finish();
                 }
