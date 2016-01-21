@@ -2,10 +2,9 @@
 <resources>
     <string name="app_name">Intratek</string>
 
+    <!-- Strings related to menu -->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
-    <!-- Strings related to menu -->
     <string name="menu_home">Home</string>
     <string name="menu_profile">Profile</string>
     <string name="menu_activities">Activities</string>
@@ -18,19 +17,33 @@
     <string name="menu_disconnect">Disconnect</string>
     <string name="action_settings">Settings</string>
 
-    <!-- Strings related to login -->
-    <string name="prompt_login">Login</string>
-    <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in</string>
-    <string name="error_incorrect_password">This password is incorrect</string>
-    <string name="error_incorrect_login">This login is incorrect</string>
-    <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
 
-    <string name="title_activity_launcher">Launcher</string>
-    <string name="splash_content">INTRATEK</string>
-    <string name="title_activity_login">Login</string>
+    <!-- Strings related to login -->
+    <string name="title_activity_login">Intratek - Login</string>
+    <string name="prompt_login">Login</string>
+    <string name="prompt_password">Password (Unix)</string>
+    <string name="action_login">Log in</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="error_invalid_login">This login is invalid</string>
+    <string name="error_invalid_password">This password is invalid</string>
     <string name="action_sign_in_short">Sign in</string>
-    <string name="title_activity_home">Home</string>
+
+
+    <!-- Strings related to launcher -->
+    <string name="title_activity_launcher">Intratek</string>
+    <string name="splash_content">INTRATEK</string>
+
+
+    <!-- Strings related to home -->
+    <string name="title_activity_home">Intratek - Home</string>
+    <string name="title_activity_profile">Profile</string>
+    <string name="title_activity_activities">Activities</string>
+    <string name="title_activity_planning">Planning</string>
+    <string name="title_activity_grades">Grades</string>
+    <string name="title_activity_projects">Projects</string>
+    <string name="title_activity_messages">Messages</string>
+    <string name="title_activity_about">About</string>
+    <string name="title_activity_disconnect">Disconnect</string>
 
 </resources>
