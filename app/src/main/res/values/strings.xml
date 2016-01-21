@@ -19,7 +19,6 @@
 
 
     <!-- Strings related to login -->
-    <string name="title_activity_login">Intratek - Login</string>
     <string name="prompt_login">Login</string>
     <string name="prompt_password">Password (Unix)</string>
     <string name="action_login">Log in</string>
@@ -31,19 +30,20 @@
 
 
     <!-- Strings related to launcher -->
-    <string name="title_activity_launcher">Intratek</string>
     <string name="splash_content">INTRATEK</string>
 
 
-    <!-- Strings related to home -->
+    <!-- Strings related to activities -->
+    <string name="title_activity_launcher">Intratek</string>
+    <string name="title_activity_login">Intratek - Login</string>
     <string name="title_activity_home">Intratek - Home</string>
-    <string name="title_activity_profile">Profile</string>
-    <string name="title_activity_activities">Activities</string>
-    <string name="title_activity_planning">Planning</string>
-    <string name="title_activity_grades">Grades</string>
-    <string name="title_activity_projects">Projects</string>
-    <string name="title_activity_messages">Messages</string>
-    <string name="title_activity_about">About</string>
-    <string name="title_activity_disconnect">Disconnect</string>
+    <string name="title_activity_profile">Intratek - Profile</string>
+    <string name="title_activity_activities">Intratek - Activities</string>
+    <string name="title_activity_planning">Intratek - Planning</string>
+    <string name="title_activity_grades">Intratek - Grades</string>
+    <string name="title_activity_projects">Intratek - Projects</string>
+    <string name="title_activity_messages">Intratek - Messages</string>
+    <string name="title_activity_about">Intratek - About</string>
+    <string name="title_activity_disconnect">Intratek - Disconnect</string>
 
 </resources>
