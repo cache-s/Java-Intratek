@@ -1,5 +1,7 @@
 package epitech.intratek.beans;
+
 import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 public class Board
