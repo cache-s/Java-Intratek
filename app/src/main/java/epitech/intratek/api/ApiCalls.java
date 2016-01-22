@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -94,6 +95,7 @@ public class ApiCalls {
                 conn.getOutputStream().write(postDataBytes);
 
                 Reader in = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
+
                 for ( int c = in.read(); c != -1; c = in.read() )
                     response = response + (char)c;
             } catch (Exception e) {

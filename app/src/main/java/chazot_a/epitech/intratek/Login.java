@@ -21,10 +21,22 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.HashMap;
+import java.util.List;
+
+import android.widget.Toast;
+
+import epitech.intratek.json.*;
+import epitech.intratek.json.Projects;
 
 /**
  * A login screen that offers login via login/password.
@@ -203,10 +215,14 @@ public class Login extends AppCompatActivity {
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.putString("token", token);
                 editor.putBoolean("isConnected", true);
+                HashMap<String, String> param = new HashMap<>();
+                param.put("token", token);
+                String infos = network.performPostCall("https://epitech-api.herokuapp.com/infos?", param);
+                editor.putString("MyInfos", infos);
                 editor.apply();
             }
             catch (JSONException e) {
-                System.out.println(e);
+                System.out.println("Error : " + e.toString());
                 return false;
             }
             return  true;

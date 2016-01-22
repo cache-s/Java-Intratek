@@ -1,30 +1,30 @@
-package epitech.intratek.beans;
+package epitech.intratek.json;
 
 import com.google.gson.annotations.SerializedName;
 
 public class Activities
 {
-    private String title;
-    private String module;
+    public String title;
+    public String module;
     @SerializedName("module_link")
-    private String moduleLink;
+    public String moduleLink;
     @SerializedName("title_link")
-    private String titleLink;
+    public String titleLink;
     @SerializedName("timeline_start")
-    private String timelineStart;
+    public String timelineStart;
     @SerializedName("timeline_end")
-    private String timelineEnd;
+    public String timelineEnd;
     @SerializedName("timeline_barre")
-    private String timelineBarre;
+    public String timelineBarre;
     @SerializedName("date_inscription")
-    private String subDate;
+    public String subDate;
     @SerializedName("salle")
-    private String room;
+    public String room;
     @SerializedName("intervenant")
-    private String speaker;
-    private String token;
+    public String speaker;
+    public String token;
     @SerializedName("token_link")
-    private String tokenLink;
+    public String tokenLink;
     @SerializedName("register_link")
-    private String registerLink;
+    public String registerLink;
 }
