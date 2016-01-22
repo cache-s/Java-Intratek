@@ -7,10 +7,19 @@
 
     <include layout="@layout/layout_grades" android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
+    <ListView
+        android:id="@+id/markList"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:drawSelectorOnTop="false"></ListView>
+    <Button
+        android:id="@+id/addMark"
+        android:layout_width="200px"
+        android:layout_height="30px" />
     <android.support.design.widget.NavigationView android:id="@+id/nav_view"
         android:layout_width="wrap_content" android:layout_height="match_parent"
         android:layout_gravity="start" android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_menu" app:menu="@menu/activity_menu_drawer" />
+        app:headerLayout="@layout/nav_header_menu" app:menu="@menu/activity_menu_drawer"
+        android:visibility="gone" />
 
 </android.support.v4.widget.DrawerLayout>

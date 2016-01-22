@@ -1,17 +1,15 @@
-package chazot_a.epitech.intratek;
+package epitech.intratek.activities;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.support.v7.app.AppCompatActivity;
-
 import android.os.AsyncTask;
-
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -21,22 +19,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.util.HashMap;
-import java.util.List;
 
-import android.widget.Toast;
-
-import epitech.intratek.json.*;
-import epitech.intratek.json.Projects;
+import chazot_a.epitech.intratek.R;
+import epitech.intratek.api.ApiCalls;
 
 /**
  * A login screen that offers login via login/password.
@@ -215,9 +204,14 @@ public class Login extends AppCompatActivity {
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.putString("token", token);
                 editor.putBoolean("isConnected", true);
-                HashMap<String, String> param = new HashMap<>();
-                param.put("token", token);
-                String infos = network.performPostCall("https://epitech-api.herokuapp.com/infos?", param);
+                params.clear();
+                params.put("token", token);
+                String infos = network.performPostCall("https://epitech-api.herokuapp.com/infos?", params);
+                params.clear();
+                params.put("user", mLogin);
+                params.put("token", token);
+                String user = network.performGetCall("https://epitech-api.herokuapp.com/user?", params);
+                editor.putString("MyUser", user);
                 editor.putString("MyInfos", infos);
                 editor.apply();
             }
