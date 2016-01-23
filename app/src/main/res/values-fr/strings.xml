@@ -24,4 +24,6 @@
     <string name="action_sign_in">Se connecter</string>
     <string name="error_incorrect_password">Mot de passe incorrect</string>
     <string name="error_field_required">Ce champ est requis</string>
+    <!--String related to Grades -->
+    <string name="text_button_more">Plus</string>
 </resources>

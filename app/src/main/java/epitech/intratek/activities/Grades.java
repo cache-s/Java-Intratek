@@ -1,9 +1,12 @@
 package epitech.intratek.activities;
 
+import android.app.ProgressDialog;
 import android.content.ClipData;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
@@ -12,6 +15,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,36 +32,47 @@ import chazot_a.epitech.intratek.R;
 import epitech.intratek.Adapter.CustomAdapter;
 import epitech.intratek.beans.Mark;
 import epitech.intratek.json.MyMarks;
-import epitech.intratek.json.MyUser;
+import epitech.intratek.utils.MenuSetUp;
 
-public class Grades extends AppCompatActivity
+public class Grades extends MenuSetUp
         implements NavigationView.OnNavigationItemSelectedListener {
 
     ListView list;
     CustomAdapter adapter;
     public  Grades CustomListView = null;
     public ArrayList<Mark> CustomListViewValuesArr = new ArrayList<>();
-
+    private int nbShowGrades = 11;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_custom_list_view_android_example);
-
+        setContentView(R.layout.activity_grades);
+        setUpMenu();
         CustomListView = this;
 
         /******** Take some data in Arraylist ( CustomListViewValuesArr ) ***********/
         setListData();
 
         Resources res =getResources();
-        ListView list = ( ListView )findViewById( R.id.list );  // List defined in XML ( See Below )
+        final ListView list = ( ListView )findViewById( R.id.list );  // List defined in XML ( See Below )
+        View footerView = ((LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.activity_grades_footer, null, false);
 
         /**************** Create Custom Adapter *********/
         adapter=new CustomAdapter( CustomListView, CustomListViewValuesArr,res );
-        list.setAdapter( adapter );
+        list.setAdapter(adapter);
+        footerView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nbShowGrades += 10;
+                setListData();
+                adapter.notifyDataSetChanged();
+                System.out.println("nbShowGrades = " + nbShowGrades);
+            }
+        });
+        list.addFooterView(footerView);
 
     }
+
         /****** Function to set data in ArrayList *************/
     public void setListData()
     {
@@ -65,22 +80,19 @@ public class Grades extends AppCompatActivity
         Gson gson = new Gson();
         String myMarks = preferences.getString("MyMarks", "");
         MyMarks marks = gson.fromJson(myMarks, MyMarks.class);
-        String myUser = preferences.getString("MyMarks", "");
-        MyUser user = gson.fromJson(myUser, MyUser.class);
-        for (int i = 0; i < 11; i++) {
+        int j = marks.myMark.size() - nbShowGrades;
+        for (int i = (marks.myMark.size() - 1); i > j; --i) {
 
             final Mark sched = new Mark();
 
             /******* Firstly take data in model object ******/
-            sched.setTitle("Title " + i);
-            sched.setScolarYear(i);
-            sched.setFinalNote(Integer.toString(i));
-            sched.setComment("Comment" + i);
-            sched.setCorrect("Correct" + i);
+            sched.setTitle(marks.myMark.get(i).title);
+            sched.setFinalNote(marks.myMark.get(i).finalNote);
+            sched.setComment(marks.myMark.get(i).comment);
+            sched.setCorrect(marks.myMark.get(i).correcteur);
             /******** Take Model Object in ArrayList **********/
             CustomListViewValuesArr.add( sched );
         }
-
     }
 
 

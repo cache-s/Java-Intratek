@@ -16,6 +16,7 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 
 import chazot_a.epitech.intratek.R;
+import epitech.intratek.activities.Grades;
 import epitech.intratek.beans.Mark;
 
 /**
@@ -54,7 +55,6 @@ public class CustomAdapter extends BaseAdapter implements View.OnClickListener
 
     public static class ViewHolder{
         public TextView title;
-        public TextView year;
         public TextView comment;
         public TextView finalNote;
         public TextView correct;
@@ -69,7 +69,6 @@ public class CustomAdapter extends BaseAdapter implements View.OnClickListener
 
             holder = new ViewHolder();
             holder.title = (TextView) vi.findViewById(R.id.title);
-            holder.year = (TextView) vi.findViewById(R.id.year);
             holder.comment = (TextView) vi.findViewById(R.id.comment);
             holder.finalNote = (TextView) vi.findViewById(R.id.finalNote);
             holder.correct= (TextView) vi.findViewById(R.id.corrector);
@@ -83,11 +82,10 @@ public class CustomAdapter extends BaseAdapter implements View.OnClickListener
             tempValues = null;
             tempValues = (Mark) data.get(position);
             holder.title.setText(tempValues.getTitle());
-            holder.year.setText(Integer.toString(tempValues.getScolarYear()));
             holder.comment.setText(tempValues.getComment());
-            holder.finalNote.setText(tempValues.getFinalNote());
+            holder.finalNote.setText(Float.toString(tempValues.getFinalNote()));
             holder.correct.setText(tempValues.getCorrect());
-            vi.setOnClickListener(new OnItemClickListener(position));
+         //   vi.setOnClickListener(new OnItemClickListener(position));
         }
         return vi;
     }
@@ -105,7 +103,7 @@ public class CustomAdapter extends BaseAdapter implements View.OnClickListener
 
         @Override
         public void onClick(View arg) {
-            CustomListViewAndroidExample sct = (CustomListViewAndroidExample)activity;
+            Grades sct = (Grades)activity;
             sct.onItemClick(mPosition);
         }
     }

@@ -12,19 +12,10 @@ public class Mark
     private String codeActi;
     private String title;
     private String correct;
-
-    public String getFinalNote() {
-        return finalNote;
-    }
-
-    public void setFinalNote(String finalNote) {
-        this.finalNote = finalNote;
-    }
-
-    private String finalNote;
+    private Float finalNote;
     private String comment;
 
-    public Mark(String _title,String _comment, String _finalNote)
+    public Mark(String _title,String _comment, Float _finalNote)
     {
         this.title = _title;
         this.comment = _comment;
@@ -35,6 +26,14 @@ public class Mark
     {
 
     }
+    public Float getFinalNote() {
+        return finalNote;
+    }
+
+    public void setFinalNote(Float finalNote) {
+        this.finalNote = finalNote;
+    }
+
     public String getComment() {
         return comment;
     }

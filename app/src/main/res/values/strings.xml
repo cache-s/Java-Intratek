@@ -51,4 +51,7 @@
     <string name="title_activity_about">Intratek - About</string>
     <string name="title_activity_disconnect">Intratek - Disconnect</string>
 
+    <!-- String related to Grades -->
+    <string name="text_button_more">More</string>
+
 </resources>
