@@ -27,6 +27,7 @@ import epitech.intratek.activities.Messages;
 import epitech.intratek.activities.Planning;
 import epitech.intratek.activities.Profile;
 import epitech.intratek.activities.Projects;
+import epitech.intratek.json.MyUser;
 import epitech.intratek.json.Student;
 
 /**
@@ -59,16 +60,19 @@ public class MenuSetUp extends AppCompatActivity implements NavigationView.OnNav
         navigationView.getId();
 
         Gson gson = new Gson();
+
         String infos = preferences.getString("MyInfos", "");
         Student student = gson.fromJson(infos, Student.class);
 
-        //TODO: Get dynamically the GPA/CREDITS/PROFILE PICTURE
+        String user = preferences.getString("MyUser", "");
+        MyUser myUser = gson.fromJson(user, MyUser.class);
+
         String logTime = student.current.get(0).activeLog.substring(0, student.current.get(0).activeLog.length() - 2) + "h";
-        gpa.setText("4.0");
-        credits.setText("120");
+        gpa.setText(myUser.gpa.get(0).gpa);
+        credits.setText(Integer.toString(myUser.credits));
         logtime.setText(logTime);
         login.setText(student.infos.login);
-        new LoadImage.ImageLoadTask("https://cdn.local.epitech.eu/userprofil/profilview/cache-_s.jpg", image).execute();
+        new LoadImage.ImageLoadTask(myUser.picture, image).execute();
     }
 
     @Override
