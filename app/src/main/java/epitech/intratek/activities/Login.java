@@ -213,9 +213,9 @@ public class Login extends AppCompatActivity {
                 String user = network.performGetCall("https://epitech-api.herokuapp.com/user?", params);
                 params.clear();
                 params.put("token", token);
-                String marks = network.performGetCall("https://epitech-api.herokuapp.com/marks?", params)
+                String marks = network.performGetCall("https://epitech-api.herokuapp.com/marks?", params);
                 editor.putString("MyUser", user);
-                editor.putString("MyMarks", marks)
+                editor.putString("MyMarks", marks);
                 editor.putString("MyInfos", infos);
                 editor.apply();
             }
