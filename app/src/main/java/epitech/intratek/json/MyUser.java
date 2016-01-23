@@ -54,9 +54,9 @@ public class MyUser
     public boolean editable;
     public String locations;
     public List<Group> groups;
-    public List<Event> events;
+    //public List<Event> events; TODO:spice
     public int credits;
     public List<Gpa> gpa;
-    public String spice;
+    //public String spice; TODO:spice
     public NsStat nsstat;
 }

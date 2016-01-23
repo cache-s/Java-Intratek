@@ -28,6 +28,7 @@ import chazot_a.epitech.intratek.R;
 import epitech.intratek.Adapter.CustomAdapter;
 import epitech.intratek.beans.Mark;
 import epitech.intratek.json.MyMarks;
+import epitech.intratek.json.MyUser;
 
 public class Grades extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -64,6 +65,8 @@ public class Grades extends AppCompatActivity
         Gson gson = new Gson();
         String myMarks = preferences.getString("MyMarks", "");
         MyMarks marks = gson.fromJson(myMarks, MyMarks.class);
+        String myUser = preferences.getString("MyMarks", "");
+        MyUser user = gson.fromJson(myUser, MyUser.class);
         for (int i = 0; i < 11; i++) {
 
             final Mark sched = new Mark();
