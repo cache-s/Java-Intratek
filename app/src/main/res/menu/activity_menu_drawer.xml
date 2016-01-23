@@ -3,27 +3,27 @@
 
     <group android:checkableBehavior="single">
         <item android:id="@+id/nav_home" android:icon="@android:drawable/ic_menu_manage"
-            android:title="Home" />
+            android:title="@string/menu_home" />
         <item android:id="@+id/nav_profile" android:icon="@android:drawable/ic_menu_manage"
-            android:title="Profile" />
+            android:title="@string/menu_profile" />
         <item android:id="@+id/nav_activities" android:icon="@android:drawable/ic_menu_manage"
-            android:title="Activities" />
+            android:title="@string/menu_activities" />
         <item android:id="@+id/nav_planning" android:icon="@android:drawable/ic_menu_manage"
-            android:title="Planning" />
+            android:title="@string/menu_planning" />
         <item android:id="@+id/nav_grades" android:icon="@android:drawable/ic_menu_manage"
-            android:title="Grades" />
+            android:title="@string/menu_grades" />
         <item android:id="@+id/nav_projects" android:icon="@android:drawable/ic_menu_manage"
-            android:title="Projects" />
+            android:title="@string/menu_projects" />
         <item android:id="@+id/nav_messages" android:icon="@android:drawable/ic_menu_manage"
-            android:title="Messages" />
+            android:title="@string/menu_messages" />
     </group>
 
-    <item android:title="More">
+    <item android:title="@string/menu_more">
         <menu>
             <item android:id="@+id/nav_about" android:icon="@android:drawable/ic_menu_manage"
-                android:title="About" />
+                android:title="@string/menu_about" />
             <item android:id="@+id/nav_disconnect" android:icon="@android:drawable/ic_menu_manage"
-                android:title="Disconnect" />
+                android:title="@string/menu_disconnect" />
         </menu>
     </item>
 

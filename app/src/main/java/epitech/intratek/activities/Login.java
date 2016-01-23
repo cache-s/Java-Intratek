@@ -29,6 +29,7 @@ import epitech.intratek.api.ApiCalls;
 
 /**
  * A login screen that offers login via login/password.
+ * Authentification is checked by the google-group Epitech API
  */
 public class Login extends AppCompatActivity {
 
@@ -98,7 +99,7 @@ public class Login extends AppCompatActivity {
         View focusView = null;
 
         // Check for a valid password, if the user entered one.
-        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
+        if (TextUtils.isEmpty(password)) {
             mPasswordView.setError(getString(R.string.error_invalid_password));
             focusView = mPasswordView;
             cancel = true;
@@ -107,10 +108,6 @@ public class Login extends AppCompatActivity {
         // Check for a valid login address.
         if (TextUtils.isEmpty(login)) {
             mLoginView.setError(getString(R.string.error_field_required));
-            focusView = mLoginView;
-            cancel = true;
-        } else if (!isLoginValid(login)) {
-            mLoginView.setError(getString(R.string.error_invalid_login));
             focusView = mLoginView;
             cancel = true;
         }
@@ -126,16 +123,6 @@ public class Login extends AppCompatActivity {
             mAuthTask = new UserLoginTask(login, password);
             mAuthTask.execute((Void) null);
         }
-    }
-
-    private boolean isLoginValid(String login) {
-        //TODO: Replace this with your own logic
-        return true;
-    }
-
-    private boolean isPasswordValid(String password) {
-        //TODO: Replace this with your own logic
-        return true;
     }
 
     /**
@@ -175,13 +162,13 @@ public class Login extends AppCompatActivity {
     }
 
     /**
-     * Represents an asynchronous login/registration task used to authenticate
+     * Represents an asynchronous login task used to authenticate
      * the user.
      */
     public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
 
-        private final String mPassword;
         private final String mLogin;
+        private final String mPassword;
 
         UserLoginTask(String login, String password) {
             mLogin = login;
@@ -204,14 +191,9 @@ public class Login extends AppCompatActivity {
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.putString("token", token);
                 editor.putBoolean("isConnected", true);
-                params.clear();
-                params.put("token", token);
-                String infos = network.performPostCall("https://epitech-api.herokuapp.com/infos?", params);
-                params.clear();
-                params.put("user", mLogin);
-                params.put("token", token);
-                String user = network.performGetCall("https://epitech-api.herokuapp.com/user?", params);
-                editor.putString("MyUser", user);
+                HashMap<String, String> param = new HashMap<>();
+                param.put("token", token);
+                String infos = network.performPostCall("https://epitech-api.herokuapp.com/infos?", param);
                 editor.putString("MyInfos", infos);
                 editor.apply();
             }
