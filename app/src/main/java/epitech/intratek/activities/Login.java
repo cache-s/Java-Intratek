@@ -26,6 +26,7 @@ import java.util.HashMap;
 
 import chazot_a.epitech.intratek.R;
 import epitech.intratek.api.ApiCalls;
+import epitech.intratek.utils.StockInfo;
 
 /**
  * A login screen that offers login via login/password.
@@ -203,20 +204,10 @@ public class Login extends AppCompatActivity {
                 String token = jObject.getString("token");
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.putString("token", token);
+                editor.putString("login", mLogin);
                 editor.putBoolean("isConnected", true);
-                params.clear();
-                params.put("token", token);
-                String infos = network.performPostCall("https://epitech-api.herokuapp.com/infos?", params);
-                params.clear();
-                params.put("user", mLogin);
-                params.put("token", token);
-                String user = network.performGetCall("https://epitech-api.herokuapp.com/user?", params);
-                params.clear();
-                params.put("token", token);
-                String marks = network.performGetCall("https://epitech-api.herokuapp.com/marks?", params);
-                editor.putString("MyUser", user);
-                editor.putString("MyMarks", marks);
-                editor.putString("MyInfos", infos);
+                StockInfo stocker = new StockInfo();
+                stocker.GetAndStockUserInfo(token, mLogin, Login.this);
                 editor.apply();
             }
             catch (JSONException e) {

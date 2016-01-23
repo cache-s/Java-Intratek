@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import chazot_a.epitech.intratek.R;
+import epitech.intratek.utils.StockInfo;
 
 /**
  * Splash screen for Intratek.
@@ -19,7 +20,7 @@ import chazot_a.epitech.intratek.R;
 public class Launcher extends AppCompatActivity {
 
     private Runnable    _runnable;
-
+    private StockInfo   stockInfo;
     /**
      * Some older devices needs a small delay between UI widget updates
      * and a change of the status and navigation bar.
@@ -42,8 +43,7 @@ public class Launcher extends AppCompatActivity {
         super.onPostCreate(savedInstanceState);
         mHideHandler.removeCallbacks(mHideRunnable);
         mHideHandler.postDelayed(mHideRunnable, 0);
-
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         boolean isConnected = preferences.getBoolean("isConnected", false);
 
         if (isConnected) //Connected
@@ -54,6 +54,8 @@ public class Launcher extends AppCompatActivity {
                 public void run()
                 {
                     Intent intent = new Intent(Launcher.this, Home.class);
+                    stockInfo = new StockInfo();
+                    stockInfo.GetAndStockUserInfo(preferences.getString("token", ""), preferences.getString("login", ""), Launcher.this);
                     startActivity(intent);
                     finish();
                 }
