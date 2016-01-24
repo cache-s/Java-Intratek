@@ -51,6 +51,14 @@
     <string name="title_activity_about">Intratek - About</string>
     <string name="title_activity_disconnect">Intratek - Disconnect</string>
 
+
+    <!-- Strings related to profile -->
+    <string name="profile_name">Name :</string>
+    <string name="profile_mail">E-Mail :</string>
+    <string name="profile_ids">Uid / Gid :</string>
+    <string name="profile_location">Location :</string>
+    
+    
     <!-- String related to Grades -->
     <string name="text_button_more">More</string>
 

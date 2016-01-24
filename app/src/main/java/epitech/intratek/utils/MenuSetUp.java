@@ -57,8 +57,6 @@ public class MenuSetUp extends AppCompatActivity implements NavigationView.OnNav
         TextView login = (TextView) header.findViewById(R.id.login_text);
         ImageView image = (ImageView) header.findViewById(R.id.profile_image);
 
-        navigationView.getId();
-
         Gson gson = new Gson();
 
         String infos = preferences.getString("MyInfos", "");
