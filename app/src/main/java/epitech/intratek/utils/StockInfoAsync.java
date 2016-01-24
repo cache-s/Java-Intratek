@@ -10,13 +10,22 @@ import java.util.HashMap;
 import epitech.intratek.api.ApiCalls;
 
 /**
- * Created by Dardaxe on 23/01/2016.
+ * Created by Dardaxe on 24/01/2016.
  */
 
-public class StockInfo
-{
-    public void GetAndStockUserInfo(String token, String login, Context context)
-    {
+public class StockInfoAsync extends AsyncTask<Void, Void, Boolean> {
+    private final String token;
+    private final String login;
+    private final Context context;
+
+    public StockInfoAsync(String token, String login, Context context) {
+        this.token = token;
+        this.login = login;
+        this.context = context;
+    }
+
+    @Override
+    protected Boolean doInBackground(Void... ect) {
         ApiCalls network = new ApiCalls();
         HashMap<String, String> params = new HashMap<>();
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
@@ -37,5 +46,6 @@ public class StockInfo
         editor.putString("MyMarks", marks);
         editor.putString("MyInfos", infos);
         editor.apply();
+        return true;
     }
 }

@@ -12,6 +12,7 @@ import android.view.View;
 
 import chazot_a.epitech.intratek.R;
 import epitech.intratek.utils.StockInfo;
+import epitech.intratek.utils.StockInfoAsync;
 
 /**
  * Splash screen for Intratek.
@@ -19,8 +20,8 @@ import epitech.intratek.utils.StockInfo;
  */
 public class Launcher extends AppCompatActivity {
 
-    private Runnable    _runnable;
-    private StockInfo   stockInfo;
+    private Runnable        _runnable;
+    private StockInfoAsync  stockInfo;
     /**
      * Some older devices needs a small delay between UI widget updates
      * and a change of the status and navigation bar.
@@ -53,9 +54,11 @@ public class Launcher extends AppCompatActivity {
                 @Override
                 public void run()
                 {
+                    System.out.println("--INITIALIZING--");
+                    stockInfo = new StockInfoAsync(preferences.getString("token", ""), preferences.getString("login", ""), Launcher.this);
+                    stockInfo.execute();
+                    System.out.println("Done initializing for " + preferences.getString("login", ""));
                     Intent intent = new Intent(Launcher.this, Home.class);
-                    stockInfo = new StockInfo();
-                    stockInfo.GetAndStockUserInfo(preferences.getString("token", ""), preferences.getString("login", ""), Launcher.this);
                     startActivity(intent);
                     finish();
                 }

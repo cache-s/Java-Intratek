@@ -34,9 +34,7 @@ import epitech.intratek.beans.Mark;
 import epitech.intratek.json.MyMarks;
 import epitech.intratek.utils.MenuSetUp;
 
-public class Grades extends MenuSetUp
-        implements NavigationView.OnNavigationItemSelectedListener {
-
+public class Grades extends MenuSetUp implements NavigationView.OnNavigationItemSelectedListener {
     ListView list;
     CustomAdapter adapter;
     public  Grades CustomListView = null;
@@ -66,7 +64,6 @@ public class Grades extends MenuSetUp
                 nbShowGrades += 10;
                 setListData();
                 adapter.notifyDataSetChanged();
-                System.out.println("nbShowGrades = " + nbShowGrades);
             }
         });
         list.addFooterView(footerView);
