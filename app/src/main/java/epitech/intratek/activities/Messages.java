@@ -33,11 +33,11 @@ public class Messages extends MenuSetUp {
         setUpMenu();
         CustomListView = this;
 
-        setListData();
         Resources res = getResources();
         final ListView list = (ListView)findViewById(R.id.list);
 
         adapter = new AdapterMessages(CustomListView, CustomListViewValuesArr, res);
+        setListData();
         list.setAdapter(adapter);
     }
 
@@ -46,7 +46,6 @@ public class Messages extends MenuSetUp {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         Gson gson = new Gson();
         String myMessages = preferences.getString("MyMessages", "");
-        System.out.println("MY MESSAGES : " + myMessages);
         Type type = new TypeToken<List<Message>>(){}.getType();
         List<Message> messages = gson.fromJson(myMessages, type);
         for (int i = 0; i < messages.size(); i++) {
@@ -54,7 +53,6 @@ public class Messages extends MenuSetUp {
 
             msg.setTitle(messages.get(i).title);
             msg.setContent(messages.get(i).content);
-            msg.setDate(messages.get(i).date);
             msg.setSenderName(messages.get(i).sender.senderName);
             msg.setSenderPicture(messages.get(i).sender.picture);
             CustomListViewValuesArr.add(msg);

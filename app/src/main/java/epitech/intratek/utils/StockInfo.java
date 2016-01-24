@@ -32,6 +32,10 @@ public class StockInfo
         params.put("token", token);
         String marks = network.performGetCall("https://epitech-api.herokuapp.com/marks?", params);
         String messages = network.performGetCall("https://epitech-api.herokuapp.com/messages?", params);
+        String modules = network.performGetCall("https://epitech-api.herokuapp.com/modules?", params);
+        String projects = network.performGetCall("https://epitech-api.herokuapp.com/projects?", params);
+        editor.putString("MyProjects", projects);
+        editor.putString("MyModules", modules);
         editor.putString("MyMessages", messages);
         editor.putString("MyUser", user);
         editor.putString("MyMarks", marks);

@@ -25,6 +25,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 import chazot_a.epitech.intratek.R;
+import epitech.intratek.activities.Messages;
 import epitech.intratek.beans.Mark;
 import epitech.intratek.beans.Message;
 import epitech.intratek.utils.LoadImage;
@@ -69,7 +70,6 @@ public class AdapterMessages extends BaseAdapter
         public TextView senderName;
         public ImageView senderPicture;
         public TextView content;
-        public TextView date;
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -83,7 +83,6 @@ public class AdapterMessages extends BaseAdapter
             holder.title = (TextView) vi.findViewById(R.id.title);
             holder.senderName = (TextView) vi.findViewById(R.id.senderName);
             holder.content = (TextView) vi.findViewById(R.id.content);
-            holder.date = (TextView) vi.findViewById(R.id.date);
             holder.senderPicture = (ImageView) vi.findViewById(R.id.picture);
             vi.setTag(holder);
         } else
@@ -92,13 +91,17 @@ public class AdapterMessages extends BaseAdapter
             holder.title.setText("No Data");
         else
         {
+
             tempValues = null;
             tempValues = (Message) data.get(position);
             holder.title.setText(tempValues.getTitle());
             holder.senderName.setText(tempValues.getSenderName());
             holder.content.setText(tempValues.getContent());
-            holder.date.setText(tempValues.getDate());
-            new LoadImage.ImageLoadTask(tempValues.getSenderPicture(), holder.senderPicture).execute();
+            holder.senderPicture.setImageBitmap(null);
+            if (tempValues.getSenderPicture() == null)
+                holder.senderPicture.setImageResource(R.drawable.nopicture_profilview);
+            else
+                new LoadImage.ImageLoadTask(tempValues.getSenderPicture(), holder.senderPicture).execute();
         }
         return vi;
     }
