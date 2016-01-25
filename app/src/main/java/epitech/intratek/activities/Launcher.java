@@ -57,7 +57,6 @@ public class Launcher extends AppCompatActivity {
                     System.out.println("--INITIALIZING--");
                     stockInfo = new StockInfoAsync(preferences.getString("token", ""), preferences.getString("login", ""), Launcher.this);
                     stockInfo.execute();
-                    System.out.println("Done initializing for " + preferences.getString("login", ""));
                     Intent intent = new Intent(Launcher.this, Home.class);
                     startActivity(intent);
                     finish();

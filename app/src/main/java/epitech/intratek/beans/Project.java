@@ -10,6 +10,7 @@ public class Project
     private String  scolarYear;
     private String  codeModule;
     private String  codeInstance;
+    private String description;
 
     public String getScolarYear() {
         return scolarYear;
