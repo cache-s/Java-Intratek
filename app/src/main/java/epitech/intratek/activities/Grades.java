@@ -87,6 +87,9 @@ public class Grades extends MenuSetUp implements NavigationView.OnNavigationItem
             sched.setFinalNote(marks.myMark.get(i).finalNote);
             sched.setComment(marks.myMark.get(i).comment);
             sched.setCorrect(marks.myMark.get(i).correcteur);
+            sched.setScolarYear(marks.myMark.get(i).scolarYear);
+            sched.setTitleModule(marks.myMark.get(i).titleModule);
+            sched.setDate(marks.myMark.get(i).date);
             /******** Take Model Object in ArrayList **********/
             CustomListViewValuesArr.add( sched );
         }
@@ -94,85 +97,16 @@ public class Grades extends MenuSetUp implements NavigationView.OnNavigationItem
 
 
     /*****************  This function used by adapter ****************/
-    public void onItemClick(int mPosition)
-    {
-        Mark tempValues = ( Mark ) CustomListViewValuesArr.get(mPosition);
-
-
-        // SHOW ALERT
-
-        Toast.makeText(CustomListView, "title:" + tempValues.getTitle() + " titleModule:" + tempValues.getTitleModule(), Toast.LENGTH_LONG).show();
-    }
-
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.grades, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.nav_home) {
-            startActivity(new Intent(getBaseContext(), Home.class));
-            finish();
-        } else if (id == R.id.nav_profile) {
-            startActivity(new Intent(getBaseContext(), Profile.class));
-            finish();
-        } else if (id == R.id.nav_activities) {
-            startActivity(new Intent(getBaseContext(), Activities.class));
-            finish();
-        } else if (id == R.id.nav_planning) {
-            startActivity(new Intent(getBaseContext(), Planning.class));
-            finish();
-        } else if (id == R.id.nav_grades) {
-            startActivity(new Intent(getBaseContext(), Grades.class));
-            finish();
-        } else if (id == R.id.nav_projects) {
-            startActivity(new Intent(getBaseContext(), Projects.class));
-            finish();
-        } else if (id == R.id.nav_messages) {
-            startActivity(new Intent(getBaseContext(), Messages.class));
-            finish();
-        } else if (id == R.id.nav_about) {
-            startActivity(new Intent(getBaseContext(), About.class));
-            finish();
-        } else if (id == R.id.nav_disconnect) {
-            startActivity(new Intent(getBaseContext(), Disconnect.class));
-            finish();
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
+    public void onGradeClick(int position) {
+        Mark tempValues = (Mark) CustomListViewValuesArr.get(position);
+        Intent myIntent = new Intent(getBaseContext(), GradeDetails.class);
+        myIntent.putExtra("titleModule", tempValues.getTitleModule());
+        myIntent.putExtra("title", tempValues.getTitle());
+        myIntent.putExtra("date", tempValues.getDate());
+        myIntent.putExtra("corrector", tempValues.getCorrect());
+        myIntent.putExtra("mark", tempValues.getFinalNote());
+        myIntent.putExtra("comment", tempValues.getComment());
+        startActivity(myIntent);
+        //System.out.println("REQUEST GRADE : " + tempValues.getFinalNote() + tempValues.getComment() + tempValues.getCorrect());
     }
 }

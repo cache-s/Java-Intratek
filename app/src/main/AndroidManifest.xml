@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="chazot_a.epitech.intratek" >
+    package="chazot_a.epitech.intratek">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -9,12 +9,12 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name="epitech.intratek.activities.Launcher"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_launcher"
-            android:theme="@style/FullscreenTheme" >
+            android:theme="@style/FullscreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,53 +23,45 @@
         </activity>
         <activity
             android:name="epitech.intratek.activities.Login"
-            android:label="@string/title_activity_login" >
-        </activity>
+            android:label="@string/title_activity_login" />
         <activity
             android:name="epitech.intratek.activities.Home"
             android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="epitech.intratek.activities.Profile"
             android:label="@string/title_activity_profile"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="epitech.intratek.activities.Activities"
             android:label="@string/title_activity_activities"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="epitech.intratek.activities.Planning"
             android:label="@string/title_activity_planning"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="epitech.intratek.activities.Grades"
             android:label="@string/title_activity_grades"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="epitech.intratek.activities.Projects"
             android:label="@string/title_activity_projects"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="epitech.intratek.activities.Messages"
             android:label="@string/title_activity_messages"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="epitech.intratek.activities.About"
             android:label="@string/title_activity_about"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="epitech.intratek.activities.Disconnect"
             android:label="@string/title_activity_disconnect"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="epitech.intratek.activities.GradeDetails" />
+        <activity android:name="epitech.intratek.activities.ProjectDetails"></activity>
     </application>
 
 </manifest>

@@ -14,12 +14,14 @@ public class Mark
     private String correct;
     private Float finalNote;
     private String comment;
+    private String date;
 
-    public Mark(String _title,String _comment, Float _finalNote)
-    {
-        this.title = _title;
-        this.comment = _comment;
-        this.finalNote = _finalNote;
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public Mark()

@@ -1,5 +1,6 @@
 package epitech.intratek.activities;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -53,7 +54,18 @@ public class Projects extends MenuSetUp {
 
             proj.setTitleModule(projects.get(i).titleModule);
             proj.setTitleProject(projects.get(i).actiTitle);
+            proj.setScolarYear(projects.get(i).scolarYear);
+            proj.setCodeModule(projects.get(i).codeModule);
+            proj.setCodeInstance(projects.get(i).codeInstance);
+            proj.setCodeActi(projects.get(i).codeActi);
             CustomListViewValuesArr.add(proj);
         }
+    }
+
+    public void onProjectClick(int position) {
+        Project tempValues = (Project) CustomListViewValuesArr.get(position);
+        Intent myIntent = new Intent(getBaseContext(), ProjectDetails.class);
+        startActivity(myIntent);
+        //System.out.println("REQUEST PROJECT : " + tempValues.getTitleModule() + tempValues.getCodeActi() + tempValues.getScolarYear());
     }
 }

@@ -2,7 +2,9 @@ package epitech.intratek.Adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.res.Resources;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import chazot_a.epitech.intratek.R;
+import epitech.intratek.activities.Projects;
 import epitech.intratek.beans.Message;
 import epitech.intratek.beans.Project;
 import epitech.intratek.utils.LoadImage;
@@ -20,7 +23,7 @@ import epitech.intratek.utils.LoadImage;
 /**
  * Created by Dardaxe on 24/01/2016.
  */
-public class AdapterProjects extends BaseAdapter
+public class AdapterProjects extends BaseAdapter implements View.OnClickListener
 {
     private Activity activity;
     private ArrayList data;
@@ -60,8 +63,7 @@ public class AdapterProjects extends BaseAdapter
     public View getView(int position, View convertView, ViewGroup parent) {
         View vi = convertView;
         ViewHolder holder;
-        if (convertView == null)
-        {
+        if (convertView == null) {
             vi = inflater.inflate(R.layout.item_projects, null);
 
             holder = new ViewHolder();
@@ -72,14 +74,32 @@ public class AdapterProjects extends BaseAdapter
             holder = (ViewHolder) vi.getTag();
         if (data.size() <= 0)
             holder.titleModule.setText("No Data");
-        else
-        {
+        else {
 
             tempValues = null;
             tempValues = (Project) data.get(position);
             holder.titleModule.setText(tempValues.getTitleModule());
             holder.titleProject.setText(tempValues.getTitleProject());
-    }
+            vi.setOnClickListener(new OnProjectClickListener(position));
+        }
         return vi;
     }
+
+    @Override
+    public void onClick(View v) {}
+
+    private class OnProjectClickListener implements View.OnClickListener {
+        private int mPosition;
+
+        public OnProjectClickListener(int position) {
+            mPosition = position;
+        }
+
+        @Override
+        public void onClick(View v) {
+            Projects sct = (Projects)activity;
+            sct.onProjectClick(mPosition);
+        }
+    }
+
 }

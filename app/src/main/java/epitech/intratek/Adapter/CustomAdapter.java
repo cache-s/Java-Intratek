@@ -85,26 +85,25 @@ public class CustomAdapter extends BaseAdapter implements View.OnClickListener
             holder.comment.setText(tempValues.getComment());
             holder.finalNote.setText(Float.toString(tempValues.getFinalNote()));
             holder.correct.setText(tempValues.getCorrect());
-         //   vi.setOnClickListener(new OnItemClickListener(position));
+            vi.setOnClickListener(new OnGradeClickListener(position));
         }
         return vi;
     }
 
     @Override
-    public void onClick(View v) {
-        Log.v("CustomAdapter", "========Row Button Clicked=======");
-    }
+    public void onClick(View v) {}
 
-    private class OnItemClickListener implements View.OnClickListener {
+    private class OnGradeClickListener implements View.OnClickListener {
         private int mPosition;
-        OnItemClickListener(int position) {
+
+        public OnGradeClickListener(int position) {
             mPosition = position;
         }
 
         @Override
-        public void onClick(View arg) {
+        public void onClick(View v) {
             Grades sct = (Grades)activity;
-            sct.onItemClick(mPosition);
+            sct.onGradeClick(mPosition);
         }
     }
 }
