@@ -48,9 +48,7 @@ public class Projects extends MenuSetUp {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         Gson gson = new Gson();
         String myProjects = preferences.getString("MyProjects", "");
-        Type type = new TypeToken<List<MyProject>>() {
-        }.getType();
-        //MyProject[] projects = gson.fromJson(myProjects, MyProject[].class);
+        Type type = new TypeToken<List<MyProject>>() {}.getType();
         List<MyProject> projects = gson.fromJson(myProjects, type);
         for (int i = 0; i < projects.size(); i++) {
             final Project proj = new Project();

@@ -22,6 +22,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -37,6 +38,7 @@ import epitech.intratek.utils.MenuSetUp;
 public class Grades extends MenuSetUp implements NavigationView.OnNavigationItemSelectedListener {
     ListView list;
     CustomAdapter adapter;
+    private View footerView;
     public  Grades CustomListView = null;
     public ArrayList<Mark> CustomListViewValuesArr = new ArrayList<>();
     private int nbShowGrades = 11;
@@ -53,7 +55,7 @@ public class Grades extends MenuSetUp implements NavigationView.OnNavigationItem
 
         Resources res =getResources();
         final ListView list = ( ListView )findViewById( R.id.list );  // List defined in XML ( See Below )
-        View footerView = ((LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.activity_grades_footer, null, false);
+        footerView = ((LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.activity_grades_footer, null, false);
 
         /**************** Create Custom Adapter *********/
         adapter=new CustomAdapter( CustomListView, CustomListViewValuesArr,res );
@@ -78,20 +80,22 @@ public class Grades extends MenuSetUp implements NavigationView.OnNavigationItem
         String myMarks = preferences.getString("MyMarks", "");
         MyMarks marks = gson.fromJson(myMarks, MyMarks.class);
         int j = marks.myMark.size() - nbShowGrades;
-        for (int i = (marks.myMark.size() - 1); i > j; --i) {
+        for (int i = (marks.myMark.size() - 1) - (nbShowGrades - 11); i > j; --i) {
 
             final Mark sched = new Mark();
 
             /******* Firstly take data in model object ******/
-            sched.setTitle(marks.myMark.get(i).title);
-            sched.setFinalNote(marks.myMark.get(i).finalNote);
-            sched.setComment(marks.myMark.get(i).comment);
-            sched.setCorrect(marks.myMark.get(i).correcteur);
-            sched.setScolarYear(marks.myMark.get(i).scolarYear);
-            sched.setTitleModule(marks.myMark.get(i).titleModule);
-            sched.setDate(marks.myMark.get(i).date);
-            /******** Take Model Object in ArrayList **********/
-            CustomListViewValuesArr.add( sched );
+            if (i >= 0) {
+                sched.setTitle(marks.myMark.get(i).title);
+                sched.setFinalNote(marks.myMark.get(i).finalNote);
+                sched.setComment(marks.myMark.get(i).comment);
+                sched.setCorrect(marks.myMark.get(i).correcteur);
+                sched.setScolarYear(marks.myMark.get(i).scolarYear);
+                sched.setTitleModule(marks.myMark.get(i).titleModule);
+                sched.setDate(marks.myMark.get(i).date);
+                /******** Take Model Object in ArrayList **********/
+                CustomListViewValuesArr.add(sched);
+            }
         }
     }
 
