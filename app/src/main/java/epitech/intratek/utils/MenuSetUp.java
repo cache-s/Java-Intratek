@@ -1,5 +1,7 @@
 package epitech.intratek.utils;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
@@ -19,11 +21,11 @@ import com.google.gson.Gson;
 
 import chazot_a.epitech.intratek.R;
 import epitech.intratek.activities.About;
-import epitech.intratek.activities.Activities;
-import epitech.intratek.activities.Disconnect;
 import epitech.intratek.activities.Grades;
 import epitech.intratek.activities.Home;
+import epitech.intratek.activities.Login;
 import epitech.intratek.activities.Messages;
+import epitech.intratek.activities.Modules;
 import epitech.intratek.activities.Planning;
 import epitech.intratek.activities.Profile;
 import epitech.intratek.activities.Projects;
@@ -71,7 +73,7 @@ public class MenuSetUp extends AppCompatActivity implements NavigationView.OnNav
         credits.setText(Integer.toString(myUser.credits));
         logtime.setText(logTime);
         login.setText(student.infos.login);
-        new LoadImage.ImageLoadTask(myUser.picture, image).execute();
+        new HandleImage.ImageLoadTask(myUser.picture, image).execute();
     }
 
     @Override
@@ -119,7 +121,7 @@ public class MenuSetUp extends AppCompatActivity implements NavigationView.OnNav
             startActivity(new Intent(getBaseContext(), Profile.class));
             finish();
         } else if (id == R.id.nav_activities) {
-            startActivity(new Intent(getBaseContext(), Activities.class));
+            startActivity(new Intent(getBaseContext(), Modules.class));
             finish();
         } else if (id == R.id.nav_planning) {
             startActivity(new Intent(getBaseContext(), Planning.class));
@@ -136,9 +138,28 @@ public class MenuSetUp extends AppCompatActivity implements NavigationView.OnNav
         } else if (id == R.id.nav_about) {
             startActivity(new Intent(getBaseContext(), About.class));
             finish();
-        } else if (id == R.id.nav_disconnect) {
-            startActivity(new Intent(getBaseContext(), Disconnect.class));
-            finish();
+        } else if (id == R.id.nav_logout) {
+            new AlertDialog.Builder(MenuSetUp.this)
+                    .setTitle(getString(R.string.logout_title))
+                    .setMessage(getString(R.string.logout_text))
+                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            SharedPreferences.Editor editor = preferences.edit();
+                            editor.putBoolean("isConnected", false);
+                            editor.apply();
+
+                            Intent intent = new Intent(getBaseContext(), Login.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                    })
+                    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // do nothing
+                        }
+                    })
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

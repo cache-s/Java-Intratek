@@ -11,7 +11,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import chazot_a.epitech.intratek.R;
-import epitech.intratek.utils.StockInfo;
 import epitech.intratek.utils.StockInfoAsync;
 
 /**

@@ -2,14 +2,12 @@ package epitech.intratek.api;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
@@ -62,6 +60,7 @@ public class ApiCalls
         try {
             String url = BaseUrl + requestUrl + getPostDataString(getDataParams);
             URL obj = new URL(url);
+            System.out.println("URL = " + url);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
             con.setRequestMethod("GET");
 

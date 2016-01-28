@@ -5,12 +5,9 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 
-import com.google.gson.Gson;
-
 import java.util.HashMap;
 
 import epitech.intratek.api.ApiCalls;
-import epitech.intratek.json.MyModules;
 
 /**
  * Created by Dardaxe on 24/01/2016.

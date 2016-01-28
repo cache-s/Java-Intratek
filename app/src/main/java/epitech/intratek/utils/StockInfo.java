@@ -2,9 +2,10 @@ package epitech.intratek.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
 
 import epitech.intratek.api.ApiCalls;
@@ -12,7 +13,6 @@ import epitech.intratek.api.ApiCalls;
 /**
  * Created by Dardaxe on 23/01/2016.
  */
-
 public class StockInfo
 {
     public void GetAndStockUserInfo(String token, String login, Context context)
@@ -40,6 +40,31 @@ public class StockInfo
         editor.putString("MyUser", user);
         editor.putString("MyMarks", marks);
         editor.putString("MyInfos", infos);
+
+        params.clear();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.clear(Calendar.MINUTE);
+        cal.clear(Calendar.SECOND);
+        cal.clear(Calendar.MILLISECOND);
+        cal.set(Calendar.DAY_OF_WEEK, cal.getFirstDayOfWeek());
+        cal.add(Calendar.WEEK_OF_YEAR, -3);
+        String start = format.format(cal.getTime());
+        Calendar cal2 = Calendar.getInstance();
+        cal2.set(Calendar.HOUR_OF_DAY, 0);
+        cal2.clear(Calendar.MINUTE);
+        cal2.clear(Calendar.SECOND);
+        cal2.clear(Calendar.MILLISECOND);
+        cal2.set(Calendar.DAY_OF_WEEK, cal2.getFirstDayOfWeek());
+        cal2.add(Calendar.WEEK_OF_YEAR, 8);
+        String end = format.format(cal2.getTime());
+        params.put("start", start);
+        params.put("end", end);
+        params.put("token", token);
+        String planning = network.performGetCall("planning?", params);
+        editor.putString("MyPlanning", planning);
+
         editor.apply();
     }
 }

@@ -5,12 +5,12 @@ import android.os.Bundle;
 import chazot_a.epitech.intratek.R;
 import epitech.intratek.utils.MenuSetUp;
 
-public class Activities extends MenuSetUp {
+public class Modules extends MenuSetUp {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_activities);
+        setContentView(R.layout.activity_modules);
         setUpMenu();
     }
 }

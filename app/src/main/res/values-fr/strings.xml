@@ -2,28 +2,66 @@
 <resources>
     <string name="app_name">Intratek</string>
 
-    <string name="navigation_drawer_open">Ouvrir le menu de navigation</string>
-    <string name="navigation_drawer_close">Fermer le menu de navigation</string>
-
     <!-- Strings related to menu -->
+    <string name="navigation_drawer_open">Ouverture du menu de navigation</string>
+    <string name="navigation_drawer_close">Fermeture du menu de navigation</string>
     <string name="menu_home">Accueil</string>
-    <string name="menu_profile">Profile</string>
-    <string name="menu_activities">Activités</string>
+    <string name="menu_profile">Profil</string>
+    <string name="menu_modules">Modules</string>
     <string name="menu_planning">Planning</string>
-    <string name="menu_grades">Grades</string>
+    <string name="menu_notes">Notes</string>
     <string name="menu_projects">Projets</string>
     <string name="menu_messages">Messages</string>
     <string name="menu_more">Plus</string>
-    <string name="menu_about">À Propos</string>
-    <string name="menu_disconnect">Déconnexion</string>
+    <string name="menu_about">A propos</string>
+    <string name="menu_logout">Déconnexion</string>
     <string name="action_settings">Paramètres</string>
+    <string name="menu_gpa">GPA :</string>
+    <string name="menu_credits">CRÉDITS :</string>
+    <string name="menu_logtime">LOG :</string>
+    <string name="menu_login">LOGIN :</string>
 
     <!-- Strings related to login -->
     <string name="prompt_login">Login</string>
-    <string name="prompt_password">Mot de passe</string>
-    <string name="action_sign_in">Se connecter</string>
+    <string name="prompt_password">Mot de passe (Unix)</string>
+    <string name="action_login">Connexion</string>
     <string name="error_incorrect_password">Mot de passe incorrect</string>
-    <string name="error_field_required">Ce champ est requis</string>
-    <!--String related to Grades -->
+    <string name="error_field_required">Ce champs est requis</string>
+    <string name="error_invalid_login">Login invalide</string>
+    <string name="error_invalid_password">Mot de passe invalide</string>
+    <string name="action_log_in_short">Connexion</string>
+
+    <!-- Strings related to launcher -->
+    <string name="splash_content">INTRATEK</string>
+
+    <!-- Strings related to activities -->
+    <string name="title_activity_launcher">Intratek</string>
+    <string name="title_activity_login">Intratek - Login</string>
+    <string name="title_activity_home">Intratek - Accueil</string>
+    <string name="title_activity_profile">Intratek - Profil</string>
+    <string name="title_activity_modules">Intratek - Modules</string>
+    <string name="title_activity_planning">Intratek - Planning</string>
+    <string name="title_activity_grades">Intratek - Notes</string>
+    <string name="title_activity_projects">Intratek - Projets</string>
+    <string name="title_activity_messages">Intratek - Messages</string>
+    <string name="title_activity_about">Intratek - A propos</string>
+    <string name="title_activity_logout">Intratek - Déconnexion</string>
+
+    <!-- Strings related to profile -->
+    <string name="profile_name">Nom :</string>
+    <string name="profile_mail">E-Mail :</string>
+    <string name="profile_ids">Uid / Gid :</string>
+    <string name="profile_location">Localisation :</string>
+
+    <!-- String related to Grades -->
     <string name="text_button_more">Plus</string>
+
+    <!-- String related to Logout -->
+    <string name="logout_title">Déconnexion</string>
+    <string name="logout_text">Êtes-vous sûr de vouloir vous déconnecter ?</string>
+
+    <!-- String related to Planning -->
+    <string name="title_activity_test">Test</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
 </resources>
