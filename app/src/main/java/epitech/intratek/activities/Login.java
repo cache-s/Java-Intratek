@@ -192,12 +192,12 @@ public class Login extends AppCompatActivity {
         @Override
         protected Boolean doInBackground(Void... etc) {
 
-            ApiCalls network = new ApiCalls();
+            ApiCalls network = ApiCalls.getInstance();
             HashMap<String, String> params = new HashMap<>();
             params.put("login", mLogin);
             params.put("password", mPassword);
 
-            String response = network.performPostCall("https://epitech-api.herokuapp.com/login?", params);
+            String response = network.performPostCall("login?", params);
 
             try {
                 JSONObject jObject  = new JSONObject(response);

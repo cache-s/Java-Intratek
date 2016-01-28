@@ -29,30 +29,30 @@ public class StockInfoAsync extends AsyncTask<Void, Void, Boolean> {
 
     @Override
     protected Boolean doInBackground(Void... ect) {
-        ApiCalls network = new ApiCalls();
+        ApiCalls network = ApiCalls.getInstance();
         HashMap<String, String> params = new HashMap<>();
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = preferences.edit();
 
         params.put("token", token);
-        String infos = network.performPostCall("https://epitech-api.herokuapp.com/infos?", params);
+        String infos = network.performPostCall("infos?", params);
         editor.putString("MyInfos", infos);
 
         params.clear();
         params.put("user", login);
         params.put("token", token);
-        String user = network.performGetCall("https://epitech-api.herokuapp.com/user?", params);
+        String user = network.performGetCall("user?", params);
         editor.putString("MyUser", user);
 
         params.clear();
         params.put("token", token);
-        String marks = network.performGetCall("https://epitech-api.herokuapp.com/marks?", params);
+        String marks = network.performGetCall("marks?", params);
         editor.putString("MyMarks", marks);
-        String messages = network.performGetCall("https://epitech-api.herokuapp.com/messages?", params);
+        String messages = network.performGetCall("messages?", params);
         editor.putString("MyMessages", messages);
-        String modules = network.performGetCall("https://epitech-api.herokuapp.com/modules?", params);
+        String modules = network.performGetCall("modules?", params);
         editor.putString("MyModules", modules);
-        String projects = network.performGetCall("https://epitech-api.herokuapp.com/projects?", params);
+        String projects = network.performGetCall("projects?", params);
         editor.putString("MyProjects", projects);
         editor.apply();
         return true;

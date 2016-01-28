@@ -19,7 +19,22 @@ import javax.net.ssl.HttpsURLConnection;
 /**
  * Created by Sebastien on 21/01/2016.
  */
-public class ApiCalls {
+public class ApiCalls
+{
+    // Singleton
+    private static ApiCalls instance;
+
+    private ApiCalls() {}
+
+    public static ApiCalls getInstance()
+    {
+        if (instance == null)
+            instance = new ApiCalls();
+        return (instance);
+    }
+    // End Singleton
+
+    private String BaseUrl = "https://epitech-api.herokuapp.com/";
 
     private String getPostDataString(HashMap<String, String> params) throws UnsupportedEncodingException
     {
@@ -45,7 +60,7 @@ public class ApiCalls {
     public String performGetCall(String requestUrl, HashMap<String, String> getDataParams)
     {
         try {
-            String url = requestUrl + getPostDataString(getDataParams);
+            String url = BaseUrl + requestUrl + getPostDataString(getDataParams);
             URL obj = new URL(url);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
             con.setRequestMethod("GET");
@@ -72,7 +87,7 @@ public class ApiCalls {
         String response = "";
         try
         {
-            url = new URL(requestURL);
+            url = new URL(BaseUrl + requestURL);
 
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 

@@ -71,7 +71,7 @@ public class Projects extends MenuSetUp {
 
     public class GetProjectTask extends AsyncTask<Void, Void, Boolean> {
         Project tempValues;
-        ApiCalls network = new ApiCalls();
+        ApiCalls network = ApiCalls.getInstance();
         SharedPreferences preferences;
         Gson gson;
 
@@ -88,7 +88,7 @@ public class Projects extends MenuSetUp {
             params.put("codemodule", tempValues.getCodeModule());
             params.put("codeinstance", tempValues.getCodeInstance());
             params.put("codeacti", tempValues.getCodeActi());
-            String project = network.performGetCall("https://epitech-api.herokuapp.com/project?", params);
+            String project = network.performGetCall("project?", params);
             System.out.println("PROJECT DETAILS = " + project);
             epitech.intratek.json.Project projectDetails = gson.fromJson(project, epitech.intratek.json.Project.class);
             Intent myIntent = new Intent(getBaseContext(), ProjectDetails.class);
