@@ -15,8 +15,8 @@ import java.net.URL;
 public class HandleImage {
     public static class ImageLoadTask extends AsyncTask<Void, Void, Bitmap> {
 
-        private String  url;
-        private ImageView   imageView;
+        private String url;
+        private ImageView imageView;
 
         public ImageLoadTask(String url, ImageView imageView) {
             this.url = url;
