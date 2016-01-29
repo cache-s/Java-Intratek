@@ -25,7 +25,6 @@ import chazot_a.epitech.intratek.R;
 import epitech.intratek.Adapter.AdapterProjects;
 import epitech.intratek.api.ApiCalls;
 import epitech.intratek.beans.Project;
-import epitech.intratek.json.Message;
 import epitech.intratek.json.MyProject;
 import epitech.intratek.utils.MenuSetUp;
 

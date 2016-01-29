@@ -11,7 +11,7 @@ import com.google.gson.Gson;
 import chazot_a.epitech.intratek.R;
 import epitech.intratek.json.MyUser;
 import epitech.intratek.json.Student;
-import epitech.intratek.utils.LoadImage;
+import epitech.intratek.utils.HandleImage;
 import epitech.intratek.utils.MenuSetUp;
 
 public class Profile extends MenuSetUp {
@@ -47,7 +47,7 @@ public class Profile extends MenuSetUp {
         credits.setText(Integer.toString(myUser.credits));
         logtime.setText(logTime);
         login.setText(student.infos.login);
-        new LoadImage.ImageLoadTask(myUser.picture, image).execute();
+        new HandleImage.ImageLoadTask(myUser.picture, image).execute();
         name.setText(myUser.title);
         email.setText(myUser.internalEmail);
         String uidgid = myUser.uid + " / " + myUser.gid;

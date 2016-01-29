@@ -12,11 +12,11 @@ import java.net.URL;
 /**
  * Created by Sebastien on 23/01/2016.
  */
-public class LoadImage {
+public class HandleImage {
     public static class ImageLoadTask extends AsyncTask<Void, Void, Bitmap> {
 
-        private String url;
-        private ImageView imageView;
+        private String  url;
+        private ImageView   imageView;
 
         public ImageLoadTask(String url, ImageView imageView) {
             this.url = url;

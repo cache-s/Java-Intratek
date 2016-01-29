@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name">Intratek</string>
 
-
     <!-- Strings related to menu -->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -15,13 +14,12 @@
     <string name="menu_messages">Messages</string>
     <string name="menu_more">More</string>
     <string name="menu_about">About</string>
-    <string name="menu_disconnect">Disconnect</string>
+    <string name="menu_logout">Log out</string>
     <string name="action_settings">Settings</string>
     <string name="menu_gpa">GPA :</string>
     <string name="menu_credits">CREDITS :</string>
-    <string name="menu_logtime">LOGTIME :</string>
+    <string name="menu_logtime">LOG :</string>
     <string name="menu_login">LOGIN :</string>
-
 
     <!-- Strings related to login -->
     <string name="prompt_login">Login</string>
@@ -33,10 +31,8 @@
     <string name="error_invalid_password">This password is invalid</string>
     <string name="action_log_in_short">Log in</string>
 
-
     <!-- Strings related to launcher -->
     <string name="splash_content">INTRATEK</string>
-
 
     <!-- Strings related to activities -->
     <string name="title_activity_launcher">Intratek</string>
@@ -49,8 +45,7 @@
     <string name="title_activity_projects">Intratek - Projects</string>
     <string name="title_activity_messages">Intratek - Messages</string>
     <string name="title_activity_about">Intratek - About</string>
-    <string name="title_activity_disconnect">Intratek - Disconnect</string>
-
+    <string name="title_activity_logout">Intratek - Disconnect</string>
 
     <!-- Strings related to profile -->
     <string name="profile_name">Name :</string>
@@ -58,10 +53,14 @@
     <string name="profile_ids">Uid / Gid :</string>
     <string name="profile_location">Location :</string>
 
-
     <!-- String related to Grades -->
     <string name="text_button_more">More</string>
 
-    <!-- String related to Projects -->
-    <string name="switch_text">Registered only</string>
+    <!-- String related to Logout -->
+    <string name="logout_title">Log out</string>
+    <string name="logout_text">Are you sure you want to log out ?</string>
+    <string name="title_activity_test">Test</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_test_planning">TestPlanning</string>
+
 </resources>

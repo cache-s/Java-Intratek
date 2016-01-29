@@ -15,9 +15,7 @@ import java.util.List;
 
 import chazot_a.epitech.intratek.R;
 import epitech.intratek.Adapter.AdapterMessages;
-import epitech.intratek.Adapter.CustomAdapter;
 import epitech.intratek.json.Message;
-import epitech.intratek.json.MyMarks;
 import epitech.intratek.utils.MenuSetUp;
 
 public class Messages extends MenuSetUp {
