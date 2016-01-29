@@ -9,7 +9,7 @@
     <string name="menu_profile">Profil</string>
     <string name="menu_modules">Modules</string>
     <string name="menu_planning">Planning</string>
-    <string name="menu_notes">Notes</string>
+    <string name="menu_grades">Notes</string>
     <string name="menu_projects">Projets</string>
     <string name="menu_messages">Messages</string>
     <string name="menu_more">Plus</string>
@@ -64,4 +64,6 @@
     <string name="title_activity_test">Test</string>
     <string name="section_format">Hello World from section: %1$d</string>
 
+    <!-- String related to Project -->
+    <string name="switch_text">Inscrit uniquement</string>
 </resources>

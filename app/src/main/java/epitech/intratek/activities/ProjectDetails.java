@@ -95,8 +95,7 @@ public class ProjectDetails extends AppCompatActivity {
 
         String _call;
         private HashMap<String, String> _params = new HashMap<>();
-        final ApiCalls network = new ApiCalls();
-
+        ApiCalls network = ApiCalls.getInstance();
         SubUnsub(String call, HashMap<String, String> params)
         {
             _call = call;
