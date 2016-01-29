@@ -3,10 +3,6 @@ package epitech.intratek.Adapter;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.media.Image;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,21 +10,11 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
 import java.util.ArrayList;
 
 import chazot_a.epitech.intratek.R;
-import epitech.intratek.activities.Messages;
-import epitech.intratek.beans.Mark;
 import epitech.intratek.beans.Message;
-import epitech.intratek.utils.LoadImage;
+import epitech.intratek.utils.HandleImage;
 
 /**
  * Created by Dardaxe on 23/01/2016.
@@ -101,7 +87,7 @@ public class AdapterMessages extends BaseAdapter
             if (tempValues.getSenderPicture() == null)
                 holder.senderPicture.setImageResource(R.drawable.nopicture_profilview);
             else
-                new LoadImage.ImageLoadTask(tempValues.getSenderPicture(), holder.senderPicture).execute();
+                new HandleImage.ImageLoadTask(tempValues.getSenderPicture(), holder.senderPicture).execute();
         }
         return vi;
     }

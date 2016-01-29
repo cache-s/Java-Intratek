@@ -1,15 +1,11 @@
 package epitech.intratek.activities;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ListView;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import chazot_a.epitech.intratek.R;
-import epitech.intratek.beans.Mark;
 
 public class GradeDetails extends AppCompatActivity {
 
