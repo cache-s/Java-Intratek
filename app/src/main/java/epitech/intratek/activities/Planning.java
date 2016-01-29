@@ -165,11 +165,36 @@ public class Planning extends MenuSetUp {
             return currentWeek;
         }
 
+        private String[]    getCurrentWeekDates(int week)
+        {
+            String dates[];
+
+            SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+            Calendar cal = Calendar.getInstance();
+            cal.set(Calendar.HOUR_OF_DAY, 0);
+            cal.clear(Calendar.MINUTE);
+            cal.clear(Calendar.SECOND);
+            cal.clear(Calendar.MILLISECOND);
+            cal.set(Calendar.DAY_OF_WEEK, cal.getFirstDayOfWeek());
+            cal.add(Calendar.WEEK_OF_YEAR, (week));
+            String weekStart = format.format(cal.getTime());
+            Calendar cal2 = Calendar.getInstance();
+            cal2.set(Calendar.HOUR_OF_DAY, 0);
+            cal2.clear(Calendar.MINUTE);
+            cal2.clear(Calendar.SECOND);
+            cal2.clear(Calendar.MILLISECOND);
+            cal2.set(Calendar.DAY_OF_WEEK, cal2.getFirstDayOfWeek());
+            cal2.add(Calendar.WEEK_OF_YEAR, (week + 1));
+            String weekEnd = format.format(cal2.getTime());
+
+            dates = new String[] {weekStart,weekEnd};
+
+            return dates;
+        }
+
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_planning, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
             Gson gson = new Gson();
             preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
             String infos = preferences.getString("MyPlanning", "");
@@ -177,13 +202,15 @@ public class Planning extends MenuSetUp {
             ArrayList<epitech.intratek.json.Planning> plannings = gson.fromJson(infos, type);
             ArrayList<epitech.intratek.json.Planning> currentWeek = getCurrentWeek(plannings, getArguments().getInt(ARG_SECTION_NUMBER) - 2);
 
-            System.out.println("WEEK : " + getArguments().getInt(ARG_SECTION_NUMBER) + ", SIZE : " + currentWeek.size());
-            String  topmp = "WEEK : " + (getArguments().getInt(ARG_SECTION_NUMBER) - 2) + "\n";
-            textView.setText(topmp);
+            TextView weekDates = (TextView) rootView.findViewById(R.id.weekDates);
+
+            String currentWeekDates[] = getCurrentWeekDates((getArguments().getInt(ARG_SECTION_NUMBER) - 2));
+            String  weekDatesString = getResources().getString(R.string.planning_from) + " " + currentWeekDates[0] + " " + getResources().getString(R.string.planning_to) + " " + currentWeekDates[1];
+            System.out.println("TRYING TO PRINT :" + weekDatesString);
+            weekDates.setText(weekDatesString);
             for (epitech.intratek.json.Planning planning: currentWeek) {
                 if (planning.register_student) {
-                    topmp = textView.getText() + planning.start + " " + planning.end + " : " + planning.acti_title + "\n";
-                    textView.setText(topmp);
+                    //PRINT
                 }
             }
 

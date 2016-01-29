@@ -66,4 +66,8 @@
 
     <!-- String related to Project -->
     <string name="switch_text">Inscrit uniquement</string>
+
+    <!-- String related to Planning -->
+    <string name="planning_from">Semaine du </string>
+    <string name="planning_to"> au </string>
 </resources>
