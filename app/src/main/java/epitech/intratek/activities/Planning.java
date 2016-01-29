@@ -185,6 +185,7 @@ public class Planning extends MenuSetUp {
             cal2.clear(Calendar.MILLISECOND);
             cal2.set(Calendar.DAY_OF_WEEK, cal2.getFirstDayOfWeek());
             cal2.add(Calendar.WEEK_OF_YEAR, (week + 1));
+            cal2.add(Calendar.DATE, -1);
             String weekEnd = format.format(cal2.getTime());
 
             dates = new String[] {weekStart,weekEnd};
@@ -206,7 +207,6 @@ public class Planning extends MenuSetUp {
 
             String currentWeekDates[] = getCurrentWeekDates((getArguments().getInt(ARG_SECTION_NUMBER) - 2));
             String  weekDatesString = getResources().getString(R.string.planning_from) + " " + currentWeekDates[0] + " " + getResources().getString(R.string.planning_to) + " " + currentWeekDates[1];
-            System.out.println("TRYING TO PRINT :" + weekDatesString);
             weekDates.setText(weekDatesString);
             for (epitech.intratek.json.Planning planning: currentWeek) {
                 if (planning.register_student) {
