@@ -120,7 +120,7 @@ public class MenuSetUp extends AppCompatActivity implements NavigationView.OnNav
         } else if (id == R.id.nav_profile) {
             startActivity(new Intent(getBaseContext(), Profile.class));
             finish();
-        } else if (id == R.id.nav_activities) {
+        } else if (id == R.id.nav_modules) {
             startActivity(new Intent(getBaseContext(), Modules.class));
             finish();
         } else if (id == R.id.nav_planning) {
