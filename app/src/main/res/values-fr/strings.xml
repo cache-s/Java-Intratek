@@ -26,4 +26,7 @@
     <string name="error_field_required">Ce champ est requis</string>
     <!--String related to Grades -->
     <string name="text_button_more">Plus</string>
+
+    <!-- String related to Projects -->
+    <string name="switch_text">Inscrit uniquement</string>
 </resources>

@@ -62,4 +62,6 @@
     <!-- String related to Grades -->
     <string name="text_button_more">More</string>
 
+    <!-- String related to Projects -->
+    <string name="switch_text">Registered only</string>
 </resources>

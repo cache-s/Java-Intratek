@@ -30,7 +30,7 @@ public class MyProject
     @SerializedName("title_module")
     public String titleModule;
     public String num;
-    public float registerd;
+    public float registered;
     @SerializedName("acti_title")
     public String actiTitle;
     @SerializedName("codeinstance")

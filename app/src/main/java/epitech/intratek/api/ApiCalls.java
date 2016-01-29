@@ -2,12 +2,14 @@ package epitech.intratek.api;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
@@ -125,5 +127,29 @@ public class ApiCalls
     }
 
     return response;
+    }
+
+    public String  performDeleteCall(String requestURL, HashMap<String, String> deleteDataParams)
+    {
+        URL url = null;
+        try {
+            url = new URL(requestURL + getPostDataString(deleteDataParams));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        HttpURLConnection httpURLConnection = null;
+        try {
+            httpURLConnection = (HttpURLConnection) url.openConnection();
+            httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            httpURLConnection.setRequestMethod("DELETE");
+            System.out.println(httpURLConnection.getResponseCode());
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        } finally {
+            if (httpURLConnection != null) {
+                httpURLConnection.disconnect();
+            }
+        }
+        return "";
     }
 }
