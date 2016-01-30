@@ -30,7 +30,7 @@ import epitech.intratek.utils.MenuSetUp;
 
 public class Projects extends MenuSetUp {
     public ArrayList<Project> CustomListViewValuesArr = new ArrayList<>();
-    AdapterProjects adapter;
+    private AdapterProjects adapter;
     public Projects CustomListView = null;
     private Switch mySwitch;
     private Boolean onlyRegist = false;
@@ -60,6 +60,7 @@ public class Projects extends MenuSetUp {
                 adapter.notifyDataSetChanged();
             }
         });
+        list.addHeaderView(listHeaderView);
         list.setAdapter(adapter);
     }
 
@@ -70,7 +71,6 @@ public class Projects extends MenuSetUp {
         Type type = new TypeToken<List<MyProject>>() {}.getType();
         List<MyProject> projects = gson.fromJson(myProjects, type);
         for (int i = 0; i < projects.size(); i++) {
-            System.out.println("ONLY REGISTER  " + onlyRegist + "REGISTERED " + projects.get(i).registered);
             if (onlyRegist == false || projects.get(i).registered == 1)
             {
                 final Project proj = new Project();
@@ -111,7 +111,7 @@ public class Projects extends MenuSetUp {
             params.put("codemodule", tempValues.getCodeModule());
             params.put("codeinstance", tempValues.getCodeInstance());
             params.put("codeacti", tempValues.getCodeActi());
-            String project = network.performGetCall("https://epitech-api.herokuapp.com/project?", params);
+            String project = network.performGetCall("project?", params);
             epitech.intratek.json.Project projectDetails = gson.fromJson(project, epitech.intratek.json.Project.class);
             Intent myIntent = new Intent(getBaseContext(), ProjectDetails.class);
             myIntent.putExtra("moduleTitle", projectDetails.module_title);
