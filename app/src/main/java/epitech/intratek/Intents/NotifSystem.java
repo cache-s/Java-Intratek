@@ -1,9 +1,12 @@
 package epitech.intratek.Intents;
 
 import android.app.IntentService;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
 import com.google.gson.Gson;
@@ -21,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
+import chazot_a.epitech.intratek.R;
 import epitech.intratek.activities.Login;
 import epitech.intratek.api.ApiCalls;
 import epitech.intratek.beans.Message;
@@ -40,7 +44,7 @@ public class NotifSystem extends IntentService
     @Override
     protected void onHandleIntent(Intent intent)
     {
-/*
+
         Gson gson = new Gson();
         ApiCalls api = ApiCalls.getInstance();
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
@@ -77,7 +81,7 @@ public class NotifSystem extends IntentService
             try
             {
                 current = format.parse(messages.get(i).date.toString());
-                if (i == 0 || tempDate.compareTo(current) > 0 )
+                if (i == 0 || tempDate.compareTo(current) < 0 )
                 {
                     tempDate = current;
                     messageId = i;
@@ -94,6 +98,10 @@ public class NotifSystem extends IntentService
         String response = api.performGetCall("messages?", params);
 
         int saveId = 0;
+        Log.i("date : ", tempDate.toString());
+
+        NotificationManager mNotificationManager =
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
         try {
             JSONArray jsonResp = new JSONArray(response);
@@ -105,7 +113,14 @@ public class NotifSystem extends IntentService
                 if (temp.compareTo(tempDate) > 0)
                 {
                     Log.i("NOTIF : ", row.toString());
+                    NotificationCompat.Builder mBuilder =
+                            new NotificationCompat.Builder(this)
+                                .setSmallIcon(R.drawable.ic_menu_module)
+                                .setContentTitle("Intratek")
+                                .setContentText(row.getString("title"));
 
+                    // mId allows you to update the notification later on.
+                    mNotificationManager.notify(i, mBuilder.build());
                 }
                 Log.i("RECU : ", row.toString());
             }
@@ -116,6 +131,6 @@ public class NotifSystem extends IntentService
             return;
         } catch (ParseException e) {
             e.printStackTrace();
-        }*/
+        }
     }
 }
