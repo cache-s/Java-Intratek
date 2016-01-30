@@ -7,13 +7,18 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.lang.reflect.Type;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 import epitech.intratek.activities.Login;
@@ -35,8 +40,7 @@ public class NotifSystem extends IntentService
     @Override
     protected void onHandleIntent(Intent intent)
     {
-        Log.i("MyTestService", "Service running");
-
+/*
         Gson gson = new Gson();
         ApiCalls api = ApiCalls.getInstance();
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
@@ -53,13 +57,65 @@ public class NotifSystem extends IntentService
         Type type = new TypeToken<ArrayList<epitech.intratek.json.Message>>(){}.getType();
         ArrayList<epitech.intratek.json.Message> messages = gson.fromJson(infos, type);
 
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
+        Date tempDate = new Date();
+        try
+        {
+            tempDate = format.parse("1970-01-01 00:00:00");
+        } catch (ParseException e)
+        {
+            e.printStackTrace();
+        }
+        int messageId = 0;
+
+        if (messages.size() == 0)
+            return;
         for (int i = 0; i < messages.size(); i++)
         {
-            //if (messages)
+            Date current;
+            try
+            {
+                current = format.parse(messages.get(i).date.toString());
+                if (i == 0 || tempDate.compareTo(current) > 0 )
+                {
+                    tempDate = current;
+                    messageId = i;
+                    Log.i(messages.get(i).date.toString(), " + " + messages.get(i).title.toString());
+                }
+            } catch (ParseException e)
+            {
+                e.printStackTrace();
+            }
         }
-        String response = api.performGetCall("messages?", params);
-        String savedMessages = preferences.getString("MyMessages", "");
 
+        Log.i("nombre message : ", "" + messageId);
+
+        String response = api.performGetCall("messages?", params);
+
+        int saveId = 0;
+
+        try {
+            JSONArray jsonResp = new JSONArray(response);
+            for (int i = jsonResp.length(); i > 0; i--)
+            {
+                JSONObject row = jsonResp.getJSONObject(i - 1);
+                String data = row.getString("date");
+                Date temp = format.parse(data);
+                if (temp.compareTo(tempDate) > 0)
+                {
+                    Log.i("NOTIF : ", row.toString());
+
+                }
+                Log.i("RECU : ", row.toString());
+            }
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putString("MyMessages", String.valueOf(response));
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return;
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }*/
     }
 }
