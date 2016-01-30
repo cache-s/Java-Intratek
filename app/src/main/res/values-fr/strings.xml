@@ -68,6 +68,13 @@
     <string name="switch_text">Inscrit uniquement</string>
 
     <!-- String related to Planning -->
-    <string name="planning_from">Semaine du </string>
-    <string name="planning_to"> au </string>
+    <string name="planning_from">Semaine du</string>
+    <string name="planning_to">au</string>
+    <string name="planning_monday">Lundi</string>
+    <string name="planning_tuesday">Mardi</string>
+    <string name="planning_wednesday">Mercredi</string>
+    <string name="planning_thursday">Jeudi</string>
+    <string name="planning_friday">Vendredi</string>
+    <string name="planning_saturday">Samedi</string>
+    <string name="planning_sunday">Dimanche</string>
 </resources>

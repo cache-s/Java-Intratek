@@ -64,7 +64,14 @@
     <string name="switch_text">Registered only</string>
 
     <!-- String related to Planning -->
-    <string name="planning_from">Week from </string>
-    <string name="planning_to"> to </string>
+    <string name="planning_from">Week from</string>
+    <string name="planning_to">to</string>
+    <string name="planning_monday">Monday</string>
+    <string name="planning_tuesday">Tuesday</string>
+    <string name="planning_wednesday">Wednesday</string>
+    <string name="planning_thursday">Thursday</string>
+    <string name="planning_friday">Friday</string>
+    <string name="planning_saturday">Saturday</string>
+    <string name="planning_sunday">Sunday</string>
 
 </resources>

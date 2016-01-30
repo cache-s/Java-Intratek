@@ -22,4 +22,199 @@
             android:textStyle="bold" />
     </ScrollView>
 
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mainScrollView"
+        android:layout_marginTop="30dp" >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Monday"
+                    android:id="@+id/textViewMonday"
+                    android:layout_below="@+id/switchRegistered"
+                    android:layout_alignParentLeft="false"
+                    android:layout_alignParentStart="true"
+                    android:singleLine="true"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    android:background="#203186" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:id="@+id/textViewContentMonday" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Tuesday"
+                    android:id="@+id/textViewTuesday"
+                    android:layout_below="@+id/switchRegistered"
+                    android:layout_alignParentLeft="false"
+                    android:layout_alignParentStart="true"
+                    android:singleLine="true"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    android:background="#203186" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:id="@+id/textViewContentTuesday" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Wednesday"
+                    android:id="@+id/textViewWednesday"
+                    android:layout_below="@+id/switchRegistered"
+                    android:layout_alignParentLeft="false"
+                    android:layout_alignParentStart="true"
+                    android:singleLine="true"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    android:background="#203186" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:id="@+id/textViewContentWednesday" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Thursday"
+                    android:id="@+id/textViewThursday"
+                    android:layout_below="@+id/switchRegistered"
+                    android:layout_alignParentLeft="false"
+                    android:layout_alignParentStart="true"
+                    android:singleLine="true"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    android:background="#203186" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:id="@+id/textViewContentThursday" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Friday"
+                    android:id="@+id/textViewFriday"
+                    android:layout_below="@+id/switchRegistered"
+                    android:layout_alignParentLeft="false"
+                    android:layout_alignParentStart="true"
+                    android:singleLine="true"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    android:background="#203186" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:id="@+id/textViewContentFriday" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Saturday"
+                    android:id="@+id/textViewSaturday"
+                    android:layout_below="@+id/switchRegistered"
+                    android:layout_alignParentLeft="false"
+                    android:layout_alignParentStart="true"
+                    android:singleLine="true"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    android:background="#203186" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:id="@+id/textViewContentSaturday" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Sunday"
+                    android:id="@+id/textViewSunday"
+                    android:layout_below="@+id/switchRegistered"
+                    android:layout_alignParentLeft="false"
+                    android:layout_alignParentStart="true"
+                    android:singleLine="true"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    android:background="#203186" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:id="@+id/textViewContentSunday" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
 </RelativeLayout>
