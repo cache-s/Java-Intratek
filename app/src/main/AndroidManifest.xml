@@ -41,7 +41,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="epitech.intratek.activities.Modules"
-            android:label="@string/title_activity_activities"
+            android:label="@string/title_activity_modules"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="epitech.intratek.activities.Grades"
@@ -63,7 +63,7 @@
         <activity android:name="epitech.intratek.activities.ProjectDetails" />
         <activity
             android:name="epitech.intratek.activities.Planning"
-            android:label="@string/title_activity_test_planning"
+            android:label="@string/title_activity_planning"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
     </application>

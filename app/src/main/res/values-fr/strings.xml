@@ -9,7 +9,7 @@
     <string name="menu_profile">Profil</string>
     <string name="menu_modules">Modules</string>
     <string name="menu_planning">Planning</string>
-    <string name="menu_notes">Notes</string>
+    <string name="menu_grades">Notes</string>
     <string name="menu_projects">Projets</string>
     <string name="menu_messages">Messages</string>
     <string name="menu_more">Plus</string>
@@ -64,4 +64,17 @@
     <string name="title_activity_test">Test</string>
     <string name="section_format">Hello World from section: %1$d</string>
 
+    <!-- String related to Project -->
+    <string name="switch_text">Inscrit uniquement</string>
+
+    <!-- String related to Planning -->
+    <string name="planning_from">Semaine du</string>
+    <string name="planning_to">au</string>
+    <string name="planning_monday">Lundi</string>
+    <string name="planning_tuesday">Mardi</string>
+    <string name="planning_wednesday">Mercredi</string>
+    <string name="planning_thursday">Jeudi</string>
+    <string name="planning_friday">Vendredi</string>
+    <string name="planning_saturday">Samedi</string>
+    <string name="planning_sunday">Dimanche</string>
 </resources>

@@ -35,7 +35,6 @@ public class Profile extends MenuSetUp {
         TextView location = (TextView) findViewById(R.id.profiletext_location);
 
         Gson gson = new Gson();
-
         String infos = preferences.getString("MyInfos", "");
         Student student = gson.fromJson(infos, Student.class);
 

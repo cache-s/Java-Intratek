@@ -12,25 +12,24 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import chazot_a.epitech.intratek.R;
-import epitech.intratek.activities.Projects;
-import epitech.intratek.beans.Project;
+import epitech.intratek.beans.Modules;
 
 /**
- * Created by Dardaxe on 24/01/2016.
+ * Created by Dardaxe on 29/01/2016.
  */
-public class AdapterProjects extends BaseAdapter implements View.OnClickListener
-{
+public class AdapterModules extends BaseAdapter implements View.OnClickListener {
+
     private Activity activity;
     private ArrayList data;
     private static LayoutInflater inflater = null;
     public Resources res;
-    private Project tempValues = null;
+    private Modules tempValues = null;
 
-    public AdapterProjects(Activity a, ArrayList d, Resources resLocal) {
+    public AdapterModules(Activity a, ArrayList d, Resources resLocal)
+    {
         activity = a;
         data = d;
         res = resLocal;
-
         inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
@@ -47,22 +46,21 @@ public class AdapterProjects extends BaseAdapter implements View.OnClickListener
         return position;
     }
 
-    /********* Create a holder Class to contain inflated xml file elements *********/
     public static class ViewHolder{
 
         public TextView titleModule;
-        public TextView titleProject;
+        public TextView credits;
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
         View vi = convertView;
         ViewHolder holder;
         if (convertView == null) {
-            vi = inflater.inflate(R.layout.item_projects, null);
+            vi = inflater.inflate(R.layout.item_modules, null);
 
             holder = new ViewHolder();
-            holder.titleModule = (TextView) vi.findViewById(R.id.titleModule);
-            holder.titleProject = (TextView) vi.findViewById(R.id.titleProject);
+            holder.titleModule = (TextView) vi.findViewById(R.id.title);
+            holder.credits = (TextView) vi.findViewById(R.id.credits);
             vi.setTag(holder);
         } else
             holder = (ViewHolder) vi.getTag();
@@ -71,10 +69,10 @@ public class AdapterProjects extends BaseAdapter implements View.OnClickListener
         else {
 
             tempValues = null;
-            tempValues = (Project) data.get(position);
-            holder.titleModule.setText(tempValues.getTitleModule());
-            holder.titleProject.setText(tempValues.getTitleProject());
-            vi.setOnClickListener(new OnProjectClickListener(position));
+            tempValues = (Modules) data.get(position);
+            holder.titleModule.setText(tempValues.getTitle());
+            holder.credits.setText(tempValues.getCredits());
+            vi.setOnClickListener(new OnModuleClickListener(position));
         }
         return vi;
     }
@@ -82,17 +80,17 @@ public class AdapterProjects extends BaseAdapter implements View.OnClickListener
     @Override
     public void onClick(View v) {}
 
-    private class OnProjectClickListener implements View.OnClickListener {
+    private class OnModuleClickListener implements View.OnClickListener {
         private int mPosition;
 
-        public OnProjectClickListener(int position) {
+        public OnModuleClickListener(int position) {
             mPosition = position;
         }
 
         @Override
         public void onClick(View v) {
-            Projects sct = (Projects)activity;
-            sct.onProjectClick(mPosition);
+            epitech.intratek.activities.Modules sct = (epitech.intratek.activities.Modules)activity;
+            sct.onModuleClick(mPosition);
         }
     }
 

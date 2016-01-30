@@ -58,7 +58,6 @@ public class Launcher extends AppCompatActivity {
                 @Override
                 public void run()
                 {
-                    System.out.println("--INITIALIZING--");
                     stockInfo = new StockInfoAsync(preferences.getString("token", ""), preferences.getString("login", ""), Launcher.this);
                     stockInfo.execute();
                     Intent intent = new Intent(Launcher.this, Home.class);

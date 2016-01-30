@@ -6,7 +6,12 @@ import android.content.res.Resources;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.CompoundButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Switch;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -25,13 +30,16 @@ import epitech.intratek.utils.MenuSetUp;
 
 public class Projects extends MenuSetUp {
     public ArrayList<Project> CustomListViewValuesArr = new ArrayList<>();
-    AdapterProjects adapter;
+    private AdapterProjects adapter;
     public Projects CustomListView = null;
+    private Switch mySwitch;
+    private Boolean onlyRegist = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_projects);
+        LayoutInflater inflater = this.getLayoutInflater();
         setUpMenu();
         CustomListView = this;
 
@@ -40,6 +48,19 @@ public class Projects extends MenuSetUp {
 
         adapter = new AdapterProjects(CustomListView, CustomListViewValuesArr, res);
         setListData();
+        LinearLayout listHeaderView = (LinearLayout)inflater.inflate(
+                R.layout.layout_project_header, null);
+        mySwitch = (Switch) listHeaderView.findViewById(R.id.switchRegistered);
+        mySwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                onlyRegist = isChecked;
+                CustomListViewValuesArr.clear();
+                setListData();
+                adapter.notifyDataSetChanged();
+            }
+        });
+        list.addHeaderView(listHeaderView);
         list.setAdapter(adapter);
     }
 
@@ -50,15 +71,18 @@ public class Projects extends MenuSetUp {
         Type type = new TypeToken<List<MyProject>>() {}.getType();
         List<MyProject> projects = gson.fromJson(myProjects, type);
         for (int i = 0; i < projects.size(); i++) {
-            final Project proj = new Project();
+            if (onlyRegist == false || projects.get(i).registered == 1)
+            {
+                final Project proj = new Project();
 
-            proj.setTitleModule(projects.get(i).titleModule);
-            proj.setTitleProject(projects.get(i).actiTitle);
-            proj.setScolarYear(projects.get(i).scolarYear);
-            proj.setCodeModule(projects.get(i).codeModule);
-            proj.setCodeInstance(projects.get(i).codeInstance);
-            proj.setCodeActi(projects.get(i).codeActi);
-            CustomListViewValuesArr.add(proj);
+                proj.setTitleModule(projects.get(i).titleModule);
+                proj.setTitleProject(projects.get(i).actiTitle);
+                proj.setScolarYear(projects.get(i).scolarYear);
+                proj.setCodeModule(projects.get(i).codeModule);
+                proj.setCodeInstance(projects.get(i).codeInstance);
+                proj.setCodeActi(projects.get(i).codeActi);
+                CustomListViewValuesArr.add(proj);
+            }
         }
     }
 
@@ -88,7 +112,6 @@ public class Projects extends MenuSetUp {
             params.put("codeinstance", tempValues.getCodeInstance());
             params.put("codeacti", tempValues.getCodeActi());
             String project = network.performGetCall("project?", params);
-            System.out.println("PROJECT DETAILS = " + project);
             epitech.intratek.json.Project projectDetails = gson.fromJson(project, epitech.intratek.json.Project.class);
             Intent myIntent = new Intent(getBaseContext(), ProjectDetails.class);
             myIntent.putExtra("moduleTitle", projectDetails.module_title);
@@ -96,6 +119,13 @@ public class Projects extends MenuSetUp {
             myIntent.putExtra("dateStart", projectDetails.begin);
             myIntent.putExtra("dateEnd", projectDetails.end);
             myIntent.putExtra("description", projectDetails.description);
+            myIntent.putExtra("registered", projectDetails.user_project_master);
+            myIntent.putExtra("endRegister", projectDetails.end_register);
+            myIntent.putExtra("token", preferences.getString("token", ""));
+            myIntent.putExtra("scolaryear", projectDetails.scolaryear);
+            myIntent.putExtra("codemodule", projectDetails.codemodule);
+            myIntent.putExtra("codeinstance", projectDetails.codeinstance);
+            myIntent.putExtra("codeacti", projectDetails.codeacti);
             startActivity(myIntent);
             return true;
         }

@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -20,6 +21,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 
 import chazot_a.epitech.intratek.R;
@@ -165,11 +168,60 @@ public class Planning extends MenuSetUp {
             return currentWeek;
         }
 
+        private String[]    getCurrentWeekDates(int week)
+        {
+            String dates[];
+
+            SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+            Calendar cal = Calendar.getInstance();
+            cal.set(Calendar.HOUR_OF_DAY, 0);
+            cal.clear(Calendar.MINUTE);
+            cal.clear(Calendar.SECOND);
+            cal.clear(Calendar.MILLISECOND);
+            cal.set(Calendar.DAY_OF_WEEK, cal.getFirstDayOfWeek());
+            cal.add(Calendar.WEEK_OF_YEAR, (week));
+            String weekStart = format.format(cal.getTime());
+            Calendar cal2 = Calendar.getInstance();
+            cal2.set(Calendar.HOUR_OF_DAY, 0);
+            cal2.clear(Calendar.MINUTE);
+            cal2.clear(Calendar.SECOND);
+            cal2.clear(Calendar.MILLISECOND);
+            cal2.set(Calendar.DAY_OF_WEEK, cal2.getFirstDayOfWeek());
+            cal2.add(Calendar.WEEK_OF_YEAR, (week + 1));
+            cal2.add(Calendar.DATE, -1);
+            String weekEnd = format.format(cal2.getTime());
+
+            dates = new String[] {weekStart,weekEnd};
+
+            return dates;
+        }
+
+        private TextView[]  getDailyContentTexts(View rootView)
+        {
+            TextView[] array;
+
+            TextView monday = (TextView) rootView.findViewById(R.id.textViewContentMonday);
+            TextView tuesday = (TextView) rootView.findViewById(R.id.textViewContentTuesday);
+            TextView wednesday = (TextView) rootView.findViewById(R.id.textViewContentWednesday);
+            TextView thursday = (TextView) rootView.findViewById(R.id.textViewContentThursday);
+            TextView friday = (TextView) rootView.findViewById(R.id.textViewContentFriday);
+            TextView saturday = (TextView) rootView.findViewById(R.id.textViewContentSaturday);
+            TextView sunday = (TextView) rootView.findViewById(R.id.textViewContentSunday);
+
+            array = new TextView[] {monday,tuesday,wednesday,thursday,friday,saturday,sunday};
+
+            return array;
+        }
+
+        private String getHour(String planning)
+        {
+            int index = planning.indexOf(" ");
+            return planning.substring(index + 1, index + 6);
+        }
+
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_planning, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
             Gson gson = new Gson();
             preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
             String infos = preferences.getString("MyPlanning", "");
@@ -177,14 +229,53 @@ public class Planning extends MenuSetUp {
             ArrayList<epitech.intratek.json.Planning> plannings = gson.fromJson(infos, type);
             ArrayList<epitech.intratek.json.Planning> currentWeek = getCurrentWeek(plannings, getArguments().getInt(ARG_SECTION_NUMBER) - 2);
 
-            System.out.println("WEEK : " + getArguments().getInt(ARG_SECTION_NUMBER) + ", SIZE : " + currentWeek.size());
-            String  topmp = "WEEK : " + (getArguments().getInt(ARG_SECTION_NUMBER) - 2) + "\n";
-            textView.setText(topmp);
-            for (epitech.intratek.json.Planning planning: currentWeek) {
-                if (planning.register_student) {
-                    topmp = textView.getText() + planning.start + " " + planning.end + " : " + planning.acti_title + "\n";
-                    textView.setText(topmp);
+            TextView weekDates = (TextView) rootView.findViewById(R.id.weekDates);
+
+            String currentWeekDates[] = getCurrentWeekDates((getArguments().getInt(ARG_SECTION_NUMBER) - 2));
+            String  weekDatesString = getResources().getString(R.string.planning_from) + " " + currentWeekDates[0] + " " + getResources().getString(R.string.planning_to) + " " + currentWeekDates[1];
+            weekDates.setText(weekDatesString);
+
+            TextView dailyContent[] = getDailyContentTexts(rootView);
+
+            final SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            Collections.sort(currentWeek, new Comparator<epitech.intratek.json.Planning>() {
+                public int compare(epitech.intratek.json.Planning o1, epitech.intratek.json.Planning o2) {
+                    try {
+                        Date a = format.parse(o1.start);
+                        Date b = format.parse(o2.start);
+                        if (a.compareTo(b) == 0)
+                            return 0;
+                        if (a.compareTo(b) < 0)
+                            return -1;
+                        if (a.compareTo(b) > 0)
+                            return 1;
+                    }
+                    catch (ParseException e)
+                    {
+                        e.printStackTrace();
+                    }
+                    return 0;
                 }
+            });
+
+
+            String weekStart = currentWeek.get(0).start;
+            int iend = weekStart.indexOf(" ");
+            weekStart = weekStart.substring(0 , iend);
+            int it = 0;
+            String toPrint;
+            for (epitech.intratek.json.Planning planning: currentWeek) {
+                if (!planning.start.substring(0, iend).equals(weekStart))
+                {
+                    weekStart = planning.start.substring(0, iend);
+                    ++it;
+                }
+                toPrint = dailyContent[it].getText().toString() + getHour(planning.start) + " - " + getHour(planning.end) + " : ";
+                if (planning.acti_title == null)
+                    toPrint += "Susie" + "\n";
+                else
+                    toPrint += planning.acti_title + "\n";
+                dailyContent[it].setText(toPrint);
             }
 
             return rootView;

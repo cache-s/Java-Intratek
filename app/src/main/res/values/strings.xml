@@ -7,7 +7,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="menu_home">Home</string>
     <string name="menu_profile">Profile</string>
-    <string name="menu_activities">Activities</string>
+    <string name="menu_modules">Modules</string>
     <string name="menu_planning">Planning</string>
     <string name="menu_grades">Grades</string>
     <string name="menu_projects">Projects</string>
@@ -39,7 +39,7 @@
     <string name="title_activity_login">Intratek - Login</string>
     <string name="title_activity_home">Intratek - Home</string>
     <string name="title_activity_profile">Intratek - Profile</string>
-    <string name="title_activity_activities">Intratek - Activities</string>
+    <string name="title_activity_modules">Intratek - Modules</string>
     <string name="title_activity_planning">Intratek - Planning</string>
     <string name="title_activity_grades">Intratek - Grades</string>
     <string name="title_activity_projects">Intratek - Projects</string>
@@ -59,8 +59,19 @@
     <!-- String related to Logout -->
     <string name="logout_title">Log out</string>
     <string name="logout_text">Are you sure you want to log out ?</string>
-    <string name="title_activity_test">Test</string>
-    <string name="section_format">Hello World from section: %1$d</string>
-    <string name="title_activity_test_planning">TestPlanning</string>
+
+    <!-- String related to Project -->
+    <string name="switch_text">Registered only</string>
+
+    <!-- String related to Planning -->
+    <string name="planning_from">Week from</string>
+    <string name="planning_to">to</string>
+    <string name="planning_monday">Monday</string>
+    <string name="planning_tuesday">Tuesday</string>
+    <string name="planning_wednesday">Wednesday</string>
+    <string name="planning_thursday">Thursday</string>
+    <string name="planning_friday">Friday</string>
+    <string name="planning_saturday">Saturday</string>
+    <string name="planning_sunday">Sunday</string>
 
 </resources>
