@@ -52,11 +52,11 @@
                     android:textStyle="bold"
                     android:background="#203186" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:id="@+id/textViewContentMonday" />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/layoutContentMonday"></LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -78,11 +78,11 @@
                     android:textStyle="bold"
                     android:background="#203186" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:id="@+id/textViewContentTuesday" />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/layoutContentTuesday" />
             </LinearLayout>
 
             <LinearLayout
@@ -104,11 +104,12 @@
                     android:textStyle="bold"
                     android:background="#203186" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:id="@+id/textViewContentWednesday" />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/layoutContentWednesday" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -130,11 +131,11 @@
                     android:textStyle="bold"
                     android:background="#203186" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:id="@+id/textViewContentThursday" />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/layoutContentThursday" />
             </LinearLayout>
 
             <LinearLayout
@@ -156,11 +157,11 @@
                     android:textStyle="bold"
                     android:background="#203186" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:id="@+id/textViewContentFriday" />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/layoutContentFriday" />
             </LinearLayout>
 
             <LinearLayout
@@ -182,11 +183,11 @@
                     android:textStyle="bold"
                     android:background="#203186" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:id="@+id/textViewContentSaturday" />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/layoutContentSaturday" />
             </LinearLayout>
 
             <LinearLayout
@@ -208,11 +209,11 @@
                     android:textStyle="bold"
                     android:background="#203186" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:id="@+id/textViewContentSunday" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/layoutContentSunday"
+                    android:orientation="vertical" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

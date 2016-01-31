@@ -10,6 +10,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -195,19 +196,19 @@ public class Planning extends MenuSetUp {
             return dates;
         }
 
-        private TextView[]  getDailyContentTexts(View rootView)
+        private LinearLayout[]  getDailyContentTexts(View rootView)
         {
-            TextView[] array;
+            LinearLayout[] array;
 
-            TextView monday = (TextView) rootView.findViewById(R.id.textViewContentMonday);
-            TextView tuesday = (TextView) rootView.findViewById(R.id.textViewContentTuesday);
-            TextView wednesday = (TextView) rootView.findViewById(R.id.textViewContentWednesday);
-            TextView thursday = (TextView) rootView.findViewById(R.id.textViewContentThursday);
-            TextView friday = (TextView) rootView.findViewById(R.id.textViewContentFriday);
-            TextView saturday = (TextView) rootView.findViewById(R.id.textViewContentSaturday);
-            TextView sunday = (TextView) rootView.findViewById(R.id.textViewContentSunday);
+            LinearLayout monday = (LinearLayout) rootView.findViewById(R.id.layoutContentMonday);
+            LinearLayout tuesday = (LinearLayout) rootView.findViewById(R.id.layoutContentTuesday);
+            LinearLayout wednesday = (LinearLayout) rootView.findViewById(R.id.layoutContentWednesday);
+            LinearLayout thursday = (LinearLayout) rootView.findViewById(R.id.layoutContentThursday);
+            LinearLayout friday = (LinearLayout) rootView.findViewById(R.id.layoutContentFriday);
+            LinearLayout saturday = (LinearLayout) rootView.findViewById(R.id.layoutContentSaturday);
+            LinearLayout sunday = (LinearLayout) rootView.findViewById(R.id.layoutContentSunday);
 
-            array = new TextView[] {monday,tuesday,wednesday,thursday,friday,saturday,sunday};
+            array = new LinearLayout[] {monday,tuesday,wednesday,thursday,friday,saturday,sunday};
 
             return array;
         }
@@ -234,7 +235,7 @@ public class Planning extends MenuSetUp {
             String  weekDatesString = getResources().getString(R.string.planning_from) + " " + currentWeekDates[0] + " " + getResources().getString(R.string.planning_to) + " " + currentWeekDates[1];
             weekDates.setText(weekDatesString);
 
-            TextView dailyContent[] = getDailyContentTexts(rootView);
+            LinearLayout dailyContent[] = getDailyContentTexts(rootView);
 
             final SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             Collections.sort(currentWeek, new Comparator<epitech.intratek.json.Planning>() {
@@ -259,6 +260,7 @@ public class Planning extends MenuSetUp {
 
 
             String weekStart = currentWeek.get(0).start;
+            TextView toAdd;
             int iend = weekStart.indexOf(" ");
             weekStart = weekStart.substring(0 , iend);
             int it = 0;
@@ -269,12 +271,14 @@ public class Planning extends MenuSetUp {
                     weekStart = planning.start.substring(0, iend);
                     ++it;
                 }
-                toPrint = dailyContent[it].getText().toString() + getHour(planning.start) + " - " + getHour(planning.end) + " : ";
+                toPrint = getHour(planning.start) + " - " + getHour(planning.end) + " : ";
                 if (planning.acti_title == null)
                     toPrint += "Susie" + "\n";
                 else
                     toPrint += planning.acti_title + "\n";
-                dailyContent[it].setText(toPrint);
+                toAdd = new TextView(getActivity());
+                toAdd.setText(toPrint);
+                dailyContent[it].addView(toAdd);
             }
 
             return rootView;
