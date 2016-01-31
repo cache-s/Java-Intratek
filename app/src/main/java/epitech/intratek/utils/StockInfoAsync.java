@@ -80,5 +80,6 @@ public class StockInfoAsync extends AsyncTask<Void, Void, Boolean> {
             Intent intent = new Intent(activity, Home.class);
             activity.startActivity(intent);
         }
+        activity.finish();
     }
 }

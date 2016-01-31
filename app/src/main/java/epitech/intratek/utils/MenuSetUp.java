@@ -65,12 +65,9 @@ public class MenuSetUp extends AppCompatActivity implements NavigationView.OnNav
         Gson gson = new Gson();
 
         String infos = preferences.getString("MyInfos", "");
-        System.out.println("infos = " + infos);
         Student student = gson.fromJson(infos, Student.class);
 
         String user = preferences.getString("MyUser", "");
-        System.out.println("MyInfis = " + infos);
-        System.out.println("MyUser = " + user);
         MyUser myUser = gson.fromJson(user, MyUser.class);
 
         String logTime = student.current.get(0).activeLog.substring(0, student.current.get(0).activeLog.length() - 2) + "h";

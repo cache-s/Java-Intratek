@@ -60,9 +60,6 @@ public class Launcher extends AppCompatActivity {
                 {
                     stockInfo = new StockInfoAsync(preferences.getString("token", ""), preferences.getString("login", ""), Launcher.this, Launcher.this);
                     stockInfo.execute();
-                    /*Intent intent = new Intent(Launcher.this, Home.class);
-                    startActivity(intent);
-                    finish();*/
                 }
             };
         }
