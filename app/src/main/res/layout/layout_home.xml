@@ -54,6 +54,8 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
                 android:background="@android:color/black"
                 android:layout_below="@id/logTime"/>
         <ScrollView
@@ -68,7 +70,7 @@
                     android:layout_height="wrap_content"
                     android:text="Title"
                     android:singleLine="true"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="35dp"
                     android:textSize="20dp"
                     android:id="@+id/titleProject1" />
                 <TextView
@@ -159,6 +161,8 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
                     android:background="@android:color/black"
                     android:layout_below="@id/projectStartDate3"/>
 
@@ -253,7 +257,9 @@
                 android:orientation="vertical">
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
                     android:id="@+id/msgSep"
                     android:background="@android:color/black"/>
                 <ImageView

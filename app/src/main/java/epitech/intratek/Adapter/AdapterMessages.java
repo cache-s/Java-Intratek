@@ -82,7 +82,7 @@ public class AdapterMessages extends BaseAdapter
             tempValues = (Message) data.get(position);
             holder.title.setText(tempValues.getTitle());
             holder.senderName.setText(tempValues.getSenderName());
-            holder.content.setText(tempValues.getContent());
+            holder.content.setText(tempValues.getContentHtml());
             holder.senderPicture.setImageBitmap(null);
             if (tempValues.getSenderPicture() == null)
                 holder.senderPicture.setImageResource(R.drawable.nopicture_profilview);

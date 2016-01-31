@@ -1,5 +1,7 @@
 package epitech.intratek.beans;
 
+import android.text.Spanned;
+
 /**
  * Created by Dardaxe on 23/01/2016.
  */
@@ -10,6 +12,15 @@ public class Message {
     private String senderUrl;
     private String content;
     private String date;
+    private android.text.Spanned contentHtml;
+
+    public Spanned getContentHtml() {
+        return contentHtml;
+    }
+
+    public void setContentHtml(Spanned contentHtml) {
+        this.contentHtml = contentHtml;
+    }
 
     public String getTitle() {
         return title;

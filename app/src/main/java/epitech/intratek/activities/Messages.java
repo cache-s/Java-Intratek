@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.Html;
 import android.widget.ListView;
 
 import com.google.gson.Gson;
@@ -50,7 +51,7 @@ public class Messages extends MenuSetUp {
             final epitech.intratek.beans.Message msg = new epitech.intratek.beans.Message();
 
             msg.setTitle(messages.get(i).title);
-            msg.setContent(messages.get(i).content);
+            msg.setContentHtml(Html.fromHtml(messages.get(i).content));
             msg.setSenderName(messages.get(i).sender.senderName);
             msg.setSenderPicture(messages.get(i).sender.picture);
             CustomListViewValuesArr.add(msg);
