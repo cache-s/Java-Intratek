@@ -71,6 +71,9 @@
     <!-- String related to Project -->
     <string name="switch_text">Registered only</string>
 
+    <!-- String related to Modules -->
+    <string name="currentyear">2015</string>
+
     <!-- String related to Planning -->
     <string name="planning_from">Week from</string>
     <string name="planning_to">to</string>

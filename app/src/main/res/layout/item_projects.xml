@@ -12,7 +12,6 @@
             android:layout_gravity="top" >
             <TableRow>
                 <TextView
-                    android:text="exempleNom"
                     android:singleLine="true"
                     android:id="@+id/titleModule"
                     android:layout_height="wrap_content"
@@ -27,7 +26,6 @@
             </TableRow>
             <TableRow>
                 <TextView
-                    android:text="exempleContent"
                     android:id="@+id/titleProject"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"

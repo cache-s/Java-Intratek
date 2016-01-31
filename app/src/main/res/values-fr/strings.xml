@@ -69,6 +69,9 @@
     <!-- String related to Project -->
     <string name="switch_text">Inscrit uniquement</string>
 
+    <!-- String related to Modules -->
+    <string name="currentyear">2015</string>
+
     <!-- String related to Planning -->
     <string name="planning_from">Semaine du</string>
     <string name="planning_to">au</string>
@@ -82,6 +85,7 @@
     <string name="valid">Valider</string>
     <string name="cancel">Annuler</string>
     <string name="token">token</string>
+
     <!-- String related to About -->
     <string name="about_version">Version</string>
     <string name="about_version_text">ID de version : 1.0\nDate de mise à jour : 31/01/2016</string>

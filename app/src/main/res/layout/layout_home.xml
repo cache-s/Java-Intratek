@@ -68,7 +68,6 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Title"
                     android:singleLine="true"
                     android:layout_marginTop="35dp"
                     android:textSize="20dp"
@@ -76,7 +75,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Date"
                     android:singleLine="true"
                     android:textSize="17dp"
                     android:id="@+id/projectStartDate1"
@@ -84,7 +82,6 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="EndDate"
                     android:gravity="right"
                     android:singleLine="true"
                     android:textSize="17dp"
@@ -101,7 +98,6 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Title"
                     android:singleLine="true"
                     android:textSize="20dp"
                     android:id="@+id/titleProject2"
@@ -109,7 +105,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Date"
                     android:singleLine="true"
                     android:textSize="17dp"
                     android:id="@+id/projectStartDate2"
@@ -117,7 +112,6 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="EndDate"
                     android:gravity="right"
                     android:singleLine="true"
                     android:textSize="17dp"
@@ -134,7 +128,6 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Title"
                     android:singleLine="true"
                     android:textSize="20dp"
                     android:id="@+id/titleProject3"
@@ -142,7 +135,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Date"
                     android:singleLine="true"
                     android:textSize="17dp"
                     android:id="@+id/projectStartDate3"
@@ -150,7 +142,6 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="EndDate"
                     android:gravity="right"
                     android:singleLine="true"
                     android:textSize="17dp"
@@ -183,15 +174,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical|start"
-                    android:textSize="20dp"
-                    android:text="NoteTitle"/>
+                    android:textSize="20dp" />
                 <TextView
                     android:id="@+id/grade1"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Note"
                     android:textSize="20dp"
                     android:gravity="end|center_vertical"/>
                 <View
@@ -207,7 +196,6 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical|start"
                     android:textSize="20dp"
-                    android:text="NoteTitle"
                     android:layout_below="@+id/gradeName1"/>
                 <TextView
                     android:id="@+id/grade2"
@@ -215,7 +203,6 @@
                     android:layout_marginBottom="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Note"
                     android:textSize="20dp"
                     android:gravity="end|center_vertical"
                     android:layout_below="@+id/grade1"/>
@@ -232,7 +219,6 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical|start"
                     android:textSize="20dp"
-                    android:text="NoteTitle"
                     android:layout_below="@+id/gradeName2"/>
                 <TextView
                     android:id="@+id/grade3"
@@ -240,7 +226,6 @@
                     android:layout_marginBottom="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Note"
                     android:textSize="20dp"
                     android:gravity="end|center_vertical"
                     android:layout_below="@+id/grade2"/>
