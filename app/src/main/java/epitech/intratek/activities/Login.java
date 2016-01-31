@@ -110,12 +110,7 @@ public class Login extends AppCompatActivity {
             mLoginView.setError(getString(R.string.error_field_required));
             focusView = mLoginView;
             cancel = true;
-        } else if (!isLoginValid(login)) {
-            mLoginView.setError(getString(R.string.error_invalid_login));
-            focusView = mLoginView;
-            cancel = true;
         }
-
         if (cancel) {
             // There was an error; don't attempt login and focus the first
             // form field with an error.
@@ -130,12 +125,10 @@ public class Login extends AppCompatActivity {
     }
 
     private boolean isLoginValid(String login) {
-        //TODO: Replace this with your own logic
         return true;
     }
 
     private boolean isPasswordValid(String password) {
-        //TODO: Replace this with your own logic
         return true;
     }
 
