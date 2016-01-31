@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="chazot_a.epitech.intratek" >
+    package="chazot_a.epitech.intratek" android:versionName="Intratek 1.0" android:versionCode="1">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
