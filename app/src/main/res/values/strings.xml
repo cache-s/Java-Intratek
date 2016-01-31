@@ -2,6 +2,9 @@
 <resources>
     <string name="app_name">Intratek</string>
 
+    <!-- Strings related to noData -->
+    <string name="nodata">No Data</string>
+
     <!-- Strings related to menu -->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -78,6 +81,7 @@
     <string name="planning_friday">Friday</string>
     <string name="planning_saturday">Saturday</string>
     <string name="planning_sunday">Sunday</string>
+    <string name="token">token</string>
 
     <!-- String related to About -->
     <string name="about_version">Version</string>

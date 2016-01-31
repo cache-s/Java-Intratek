@@ -2,6 +2,9 @@
 <resources>
     <string name="app_name">Intratek</string>
 
+    <!-- Strings related to noData -->
+    <string name="nodata">Aucune info</string>
+
     <!-- Strings related to menu -->
     <string name="navigation_drawer_open">Ouverture du menu de navigation</string>
     <string name="navigation_drawer_close">Fermeture du menu de navigation</string>
@@ -49,8 +52,6 @@
 
     <!-- Strings related to home -->
     <string name="enter_token">Entrer votre token pour l\'activité </string>
-    <string name="valid">Valider</string>
-    <string name="cancel">Annuler</string>
 
     <!-- Strings related to profile -->
     <string name="profile_name">Nom :</string>
@@ -78,7 +79,9 @@
     <string name="planning_friday">Vendredi</string>
     <string name="planning_saturday">Samedi</string>
     <string name="planning_sunday">Dimanche</string>
-
+    <string name="valid">Valider</string>
+    <string name="cancel">Annuler</string>
+    <string name="token">token</string>
     <!-- String related to About -->
     <string name="about_version">Version</string>
     <string name="about_version_text">ID de version : 1.0\nDate de mise à jour : 31/01/2016</string>
