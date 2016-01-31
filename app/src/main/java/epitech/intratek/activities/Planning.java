@@ -288,14 +288,16 @@ public class Planning extends MenuSetUp {
                     toPrint += planning.acti_title + "\n";
                 toAdd = new TextView(getActivity());
                 toAdd.setText(toPrint);
-                HashMap<String, String> param = new HashMap<>();
-                param.put("token", preferences.getString("token", ""));
-                param.put("scolaryear", planning.scolaryear);
-                param.put("codemodule", planning.codemodule);
-                param.put("codeinstance", planning.codeinstance);
-                param.put("codeacti", planning.codeacti);
-                param.put("codeevent", planning.codeevent);
-                setOnClick(toAdd, planning.acti_title, param);
+                if (planning.allow_token == true) {
+                    HashMap<String, String> param = new HashMap<>();
+                    param.put("token", preferences.getString("token", ""));
+                    param.put("scolaryear", planning.scolaryear);
+                    param.put("codemodule", planning.codemodule);
+                    param.put("codeinstance", planning.codeinstance);
+                    param.put("codeacti", planning.codeacti);
+                    param.put("codeevent", planning.codeevent);
+                    setOnClick(toAdd, planning.acti_title, param);
+                }
                 dailyContent[it].addView(toAdd);
             }
 
