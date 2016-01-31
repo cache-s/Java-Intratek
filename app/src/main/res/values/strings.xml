@@ -73,5 +73,6 @@
     <string name="planning_friday">Friday</string>
     <string name="planning_saturday">Saturday</string>
     <string name="planning_sunday">Sunday</string>
+    <string name="title_activity_todelete">todelete</string>
 
 </resources>

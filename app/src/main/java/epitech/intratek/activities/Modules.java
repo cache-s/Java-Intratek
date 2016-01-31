@@ -34,7 +34,6 @@ import epitech.intratek.api.ApiCalls;
 import epitech.intratek.json.AllModule;
 import epitech.intratek.json.AllModules;
 import epitech.intratek.json.MyUser;
-import epitech.intratek.json.User;
 import epitech.intratek.utils.MenuSetUp;
 
 public class Modules extends MenuSetUp {
