@@ -18,6 +18,7 @@ import java.util.List;
 
 import chazot_a.epitech.intratek.R;
 import epitech.intratek.json.Message;
+import epitech.intratek.json.MyMarks;
 import epitech.intratek.json.MyProject;
 import epitech.intratek.json.MyUser;
 import epitech.intratek.json.Student;
@@ -42,7 +43,12 @@ public class Home extends MenuSetUp
     private TextView projectTitle3;
     private TextView projectStart3;
     private TextView projectEnd3;
-
+    private TextView titleGrade1;
+    private TextView grade1;
+    private TextView titleGrade2;
+    private TextView grade2;
+    private TextView titleGrade3;
+    private TextView grade3;
     private SharedPreferences preferences;
     private Gson gson;
 
@@ -90,6 +96,21 @@ public class Home extends MenuSetUp
         projectEnd1.setText(projects.get(0).endActi);
         projectEnd2.setText(projects.get(1).endActi);
         projectEnd3.setText(projects.get(2).endActi);
+
+        titleGrade1 = (TextView) findViewById(R.id.gradeName1);
+        grade1 =  (TextView) findViewById(R.id.grade1);
+        titleGrade2 = (TextView) findViewById(R.id.gradeName2);
+        grade2 =  (TextView) findViewById(R.id.grade2);
+        titleGrade3 = (TextView) findViewById(R.id.gradeName3);
+        grade3 =  (TextView) findViewById(R.id.grade3);
+        String myMarks = preferences.getString("MyMarks", "");
+        MyMarks marks = gson.fromJson(myMarks, MyMarks.class);
+        titleGrade1.setText(marks.myMark.get(marks.myMark.size()-1).title);
+        grade1.setText(Float.toString(marks.myMark.get(marks.myMark.size()-1).finalNote));
+        titleGrade2.setText(marks.myMark.get(marks.myMark.size()-2).title);
+        grade2.setText(Float.toString(marks.myMark.get(marks.myMark.size()-2).finalNote));
+        titleGrade3.setText(marks.myMark.get(marks.myMark.size()-3).title);
+        grade3.setText(Float.toString(marks.myMark.get(marks.myMark.size()-3).finalNote));
 
         imgMsg1 = (ImageView) findViewById(R.id.picMsg1);
         imgMsg2 = (ImageView) findViewById(R.id.picMsg2);

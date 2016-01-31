@@ -59,7 +59,7 @@
         <ScrollView
             android:id="@+id/projectsView"
             android:layout_width="match_parent"
-            android:layout_height="330dp">
+            android:layout_height="wrap_content">
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -165,10 +165,88 @@
             </RelativeLayout>
         </ScrollView>
         <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/gradesView"
+            android:layout_below="@id/projectsView">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/gradeName1"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical|start"
+                    android:textSize="20dp"
+                    android:text="NoteTitle"/>
+                <TextView
+                    android:id="@+id/grade1"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Note"
+                    android:textSize="20dp"
+                    android:gravity="end|center_vertical"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"
+                    android:layout_below="@+id/grade1"/>
+                <TextView
+                    android:id="@+id/gradeName2"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical|start"
+                    android:textSize="20dp"
+                    android:text="NoteTitle"
+                    android:layout_below="@+id/gradeName1"/>
+                <TextView
+                    android:id="@+id/grade2"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Note"
+                    android:textSize="20dp"
+                    android:gravity="end|center_vertical"
+                    android:layout_below="@+id/grade1"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"
+                    android:layout_below="@+id/grade2"/>
+                <TextView
+                    android:id="@+id/gradeName3"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical|start"
+                    android:textSize="20dp"
+                    android:text="NoteTitle"
+                    android:layout_below="@+id/gradeName2"/>
+                <TextView
+                    android:id="@+id/grade3"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Note"
+                    android:textSize="20dp"
+                    android:gravity="end|center_vertical"
+                    android:layout_below="@+id/grade2"/>
+            </RelativeLayout>
+        </ScrollView>
+        <ScrollView
             android:id="@+id/messagesView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/projectsView">
+            android:layout_below="@id/gradesView">
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

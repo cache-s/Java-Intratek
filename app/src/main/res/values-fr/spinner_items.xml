@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinner_items">
+        <item>FR/NAN</item>
+        <item>FR/BDX</item>
+        <item>FR/LIL</item>
+        <item>FR/LYN</item>
+        <item>FR/MAR</item>
+        <item>FR/MPL</item>
+        <item>FR/NCY</item>
+        <item>FR/NCE</item>
+        <item>FR/PAR</item>
+        <item>FR/REN</item>
+        <item>FR/STG</item>
+        <item>FR/TLS</item>
+    </string-array>
+</resources>
