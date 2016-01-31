@@ -1,5 +1,7 @@
 package epitech.intratek.activities;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -7,14 +9,18 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+
+import org.w3c.dom.Text;
 
 import java.lang.reflect.Type;
 import java.text.ParseException;
@@ -24,8 +30,10 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.HashMap;
 
 import chazot_a.epitech.intratek.R;
+import epitech.intratek.api.ApiCalls;
 import epitech.intratek.utils.MenuSetUp;
 
 public class Planning extends MenuSetUp {
@@ -100,6 +108,8 @@ public class Planning extends MenuSetUp {
          */
         private static final String ARG_SECTION_NUMBER = "section_number";
         private epitech.intratek.json.Planning planning;
+        TextView actiName;
+        EditText token;
         SharedPreferences preferences;
 
         /**
@@ -278,10 +288,44 @@ public class Planning extends MenuSetUp {
                     toPrint += planning.acti_title + "\n";
                 toAdd = new TextView(getActivity());
                 toAdd.setText(toPrint);
+                HashMap<String, String> param = new HashMap<>();
+                param.put("token", preferences.getString("token", ""));
+                param.put("scolaryear", planning.scolaryear);
+                param.put("codemodule", planning.codemodule);
+                param.put("codeinstance", planning.codeinstance);
+                param.put("codeacti", planning.codeacti);
+                param.put("codeevent", planning.codeevent);
+                setOnClick(toAdd, planning.acti_title, param);
                 dailyContent[it].addView(toAdd);
             }
 
             return rootView;
+        }
+
+        private void setOnClick(final TextView tv, final String str, final HashMap<String, String> param)
+        {
+            tv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final ApiCalls network = ApiCalls.getInstance();
+                    final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    LayoutInflater inflater = getActivity().getLayoutInflater();
+                    builder.setView(inflater.inflate(R.layout.layout_dialog_token, null)).setTitle(getResources().getString(R.string.enter_token) + " " + str)
+                            .setPositiveButton(R.string.valid, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    EditText edit = (EditText) ((AlertDialog) dialog).findViewById(R.id.token);
+                                    param.put("tokenvalidationcode", edit.getText().toString());
+                                    network.performPostCall("/token", param);
+                                }
+                            })
+                            .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                }
+                            });
+                    builder.show();
+                }
+            });
         }
     }
 }

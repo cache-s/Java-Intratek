@@ -47,6 +47,11 @@
     <string name="title_activity_about">Intratek - About</string>
     <string name="title_activity_logout">Intratek - Disconnect</string>
 
+    <!-- Strings related to home -->
+    <string name="enter_token">Enter token for activity </string>
+    <string name="valid">Validate</string>
+    <string name="cancel">Cancel</string>
+
     <!-- Strings related to profile -->
     <string name="profile_name">Name :</string>
     <string name="profile_mail">E-Mail :</string>
