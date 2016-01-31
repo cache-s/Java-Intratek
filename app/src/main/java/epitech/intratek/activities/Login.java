@@ -204,7 +204,7 @@ public class Login extends AppCompatActivity {
                 editor.apply();
             }
             catch (JSONException e) {
-                System.out.println("Error : " + e.toString());
+                System.err.println("Error : " + e.toString());
                 return false;
             }
             return  true;

@@ -61,7 +61,6 @@ public class ApiCalls
         try {
             String url = BaseUrl + requestUrl + getPostDataString(getDataParams);
             URL obj = new URL(url);
-            System.out.println("URL = " + url);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
             con.setRequestMethod("GET");
 
@@ -140,7 +139,6 @@ public class ApiCalls
             httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             httpURLConnection.setRequestMethod("DELETE");
-            System.out.println(httpURLConnection.getResponseCode());
         } catch (IOException exception) {
             exception.printStackTrace();
         } finally {

@@ -97,6 +97,5 @@ public class Grades extends MenuSetUp implements NavigationView.OnNavigationItem
         myIntent.putExtra("mark", tempValues.getFinalNote());
         myIntent.putExtra("comment", tempValues.getComment());
         startActivity(myIntent);
-        //System.out.println("REQUEST GRADE : " + tempValues.getFinalNote() + tempValues.getComment() + tempValues.getCorrect());
     }
 }

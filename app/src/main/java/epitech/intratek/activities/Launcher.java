@@ -114,7 +114,6 @@ public class Launcher extends AppCompatActivity {
     };
 
     public void scheduleAlarm() {
-        System.out.println("schedule Alarm");
         Intent intent = new Intent(getApplicationContext(), AlarmReceiver.class);
 
         final PendingIntent pIntent = PendingIntent.getBroadcast(this, AlarmReceiver.REQUEST_CODE,
