@@ -6,12 +6,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
-import android.util.Log;
 
 import java.util.HashMap;
 
 import epitech.intratek.activities.Home;
-import epitech.intratek.activities.Launcher;
 import epitech.intratek.activities.Login;
 import epitech.intratek.api.ApiCalls;
 

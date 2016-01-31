@@ -10,7 +10,6 @@ import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONArray;
@@ -25,11 +24,7 @@ import java.util.Date;
 import java.util.HashMap;
 
 import chazot_a.epitech.intratek.R;
-import epitech.intratek.activities.Login;
 import epitech.intratek.api.ApiCalls;
-import epitech.intratek.beans.Message;
-import epitech.intratek.json.Planning;
-import epitech.intratek.utils.StockInfo;
 
 /**
  * Created by Yolobitch on 29/01/2016.
