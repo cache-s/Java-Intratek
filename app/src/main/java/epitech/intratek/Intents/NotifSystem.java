@@ -73,7 +73,7 @@ public class NotifSystem extends IntentService
         }
         int messageId = 0;
 
-        if (messages.size() == 0)
+        if (messages == null || messages.size() == 0)
             return;
         for (int i = 0; i < messages.size(); i++)
         {

@@ -1,12 +1,18 @@
 package epitech.intratek.utils;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 import java.util.HashMap;
 
+import epitech.intratek.activities.Home;
+import epitech.intratek.activities.Launcher;
+import epitech.intratek.activities.Login;
 import epitech.intratek.api.ApiCalls;
 
 /**
@@ -17,18 +23,22 @@ public class StockInfoAsync extends AsyncTask<Void, Void, Boolean> {
     private final String token;
     private final String login;
     private final Context context;
+    private SharedPreferences preferences;
+    private Activity activity;
 
-    public StockInfoAsync(String token, String login, Context context) {
+
+    public StockInfoAsync(String token, String login, Context context, Activity activity) {
         this.token = token;
         this.login = login;
         this.context = context;
+        this.activity = activity;
     }
 
     @Override
     protected Boolean doInBackground(Void... ect) {
         ApiCalls network = ApiCalls.getInstance();
         HashMap<String, String> params = new HashMap<>();
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        preferences = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = preferences.edit();
 
         params.put("token", token);
@@ -39,6 +49,8 @@ public class StockInfoAsync extends AsyncTask<Void, Void, Boolean> {
         params.put("user", login);
         params.put("token", token);
         String user = network.performGetCall("user?", params);
+        if (user.equals(""))
+            return false;
         editor.putString("MyUser", user);
 
         params.clear();
@@ -53,5 +65,20 @@ public class StockInfoAsync extends AsyncTask<Void, Void, Boolean> {
         editor.putString("MyProjects", projects);
         editor.apply();
         return true;
+    }
+
+    @Override
+    protected void onPostExecute(Boolean result)
+    {
+        if (result == false) {
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putBoolean("isConnected", false);
+            editor.apply();
+            activity.startActivity(new Intent(activity, Login.class));
+        } else
+        {
+            Intent intent = new Intent(activity, Home.class);
+            activity.startActivity(intent);
+        }
     }
 }

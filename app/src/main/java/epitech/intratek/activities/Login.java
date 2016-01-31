@@ -92,7 +92,7 @@ public class Login extends AppCompatActivity {
         mPasswordView.setError(null);
 
         // Store values at the time of the login attempt.
-        String login = mLoginView.getText().toString();
+        String login = mLoginView.getText().toString().trim();
         String password = mPasswordView.getText().toString();
 
         boolean cancel = false;
