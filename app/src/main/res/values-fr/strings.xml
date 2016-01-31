@@ -65,10 +65,6 @@
     <string name="logout_title">Déconnexion</string>
     <string name="logout_text">Êtes-vous sûr de vouloir vous déconnecter ?</string>
 
-    <!-- String related to Planning -->
-    <string name="title_activity_test">Test</string>
-    <string name="section_format">Hello World from section: %1$d</string>
-
     <!-- String related to Project -->
     <string name="switch_text">Inscrit uniquement</string>
 
