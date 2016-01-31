@@ -77,4 +77,11 @@
     <string name="planning_friday">Vendredi</string>
     <string name="planning_saturday">Samedi</string>
     <string name="planning_sunday">Dimanche</string>
+
+    <!-- String related to About -->
+    <string name="about_version">Version</string>
+    <string name="about_version_text">ID de version : 1.0\nDate de mise à jour : 31/01/2016</string>
+    <string name="about_author">Auteurs</string>
+    <string name="about_author_text">Jordan Chazottes\nSébastien Cache-Delanos\nLoïc Houdu</string>
+
 </resources>

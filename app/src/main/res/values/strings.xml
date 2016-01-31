@@ -75,4 +75,10 @@
     <string name="planning_sunday">Sunday</string>
     <string name="title_activity_todelete">todelete</string>
 
+    <!-- String related to About -->
+    <string name="about_version">Version</string>
+    <string name="about_version_text">Version ID : 1.0\nLast update : 31/01/2016</string>
+    <string name="about_author">Authors</string>
+    <string name="about_author_text">Jordan Chazottes\nSébastien Cache-Delanos\nLoïc Houdu</string>
+
 </resources>
